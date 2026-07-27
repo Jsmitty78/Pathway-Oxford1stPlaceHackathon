@@ -234,7 +234,7 @@ is not clinically validated.**
 
 ## Validation
 
-From the pitch deck, reported as the team presented it:
+Within 36 hours, we interviewed the streets of Oxford
 
 | | |
 |---|---|
@@ -314,7 +314,7 @@ Built at the Oxford Venture 2026 Hackathon by:
 
 ## Licence
 
-[MIT](LICENSE) © 2026 Caleb Byrne.
+[MIT](LICENSE) 
 
 The pitch-deck stills in `assets/` are the team's own material, included to document the
 original demo. Two screenshots from the deck were deliberately excluded because they contain
