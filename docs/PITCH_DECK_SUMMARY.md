@@ -3,6 +3,20 @@
 Source: `Pathway.pptx`, 35 slides, Oxford Venture 2026 Hackathon. The file itself is
 git-ignored (262 MB — over GitHub's file limit); extracted stills are in [`assets/`](../assets/).
 
+**This deck won 1st place in a field of 115 participants.** It was presented at the end of a
+36-hour build by a team that formed at the event. The narrative around the deck — the field
+research, the improvised hardware, the live fall demonstration — is in
+[HACKATHON_STORY.md](./HACKATHON_STORY.md).
+
+Two sets of images document the same project from different angles:
+
+- [`assets/`](../assets/) holds stills pulled out of **this deck** — the demo footage, the app
+  UI, the architecture slide. They show what the original build produced.
+- [`assets/hackathon/`](../assets/hackathon) holds **photographs taken during the event** — the
+  whiteboard, the street interviews, the improvised frame, the presentation and the result.
+  They show how it was produced. Provenance and privacy redactions for both sets are in
+  [assets/README.md](../assets/README.md).
+
 ---
 
 ## Positioning
@@ -41,8 +55,10 @@ records the event, initiates text messages, phone-calls and hazard triaging."*
 |---|---|
 | **32** | public interviews conducted around Oxford |
 | **68%** | knew an adult who had fallen in the last year |
-| **4** | care homes contacted; 2 interested in a scheduled demo |
+| **4** | care homes contacted; **2** expressed interest in a follow-up test or a scheduled demonstration |
 | **2** | elderly-care experts expressed interest |
+
+Neither care home became a formal partner and no trial was agreed.
 
 > *"My **biggest fear** isn't falling myself; it's my parents falling when **no one's there
 > to catch them**."* — Sarah, 42, from Oxfordshire
@@ -79,7 +95,7 @@ Recovered stills:
 | [`demo-static-mapping.jpg`](../assets/demo-static-mapping.jpg) | LiDAR room capture with 3D furniture bounds |
 | [`demo-app-ui.jpg`](../assets/demo-app-ui.jpg) | The Pathway app: title pill, left rail of large circular buttons |
 | [`alert-help-screen.jpg`](../assets/alert-help-screen.jpg) | Full-screen red HELP, "Contact emergency" / "Crisis averted" |
-| [`prototype-walker-mount.jpg`](../assets/prototype-walker-mount.jpg) | The rig — a clamp on a frame improvised from lacrosse sticks |
+| [`prototype-walker-mount.jpg`](../assets/prototype-walker-mount.jpg) | The rig — a 3D-printed mount on a frame improvised from lacrosse sticks |
 
 Two further screenshots in the deck show a real SMS with a location pin and a real outbound
 call. Both are excluded here because they contain a residential address and a mobile
@@ -101,7 +117,9 @@ through in [ARCHITECTURE.md](./ARCHITECTURE.md).
 
 ## Next steps (slide 28)
 
-1. Scheduled meeting with St John's care home to demonstrate the product
+1. Scheduled meeting with an interested care home to demonstrate the product. The slide names
+   it; this repository does not, and the name is redacted from the published whiteboard
+   photograph, because the care home never agreed to be identified publicly
 2. Looking into protecting the IP specific to NHS walkers
 3. Considering both D2C and B2B (selling to care homes)
 4. Starting fundraising goal of £75,000
