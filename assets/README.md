@@ -24,10 +24,10 @@ playback in the browser, **no audio track** (none of the three sources had one).
 
 | Final file | Original | Duration | Dimensions | Original → final | Trimmed | Cropped | Blurred | Audio |
 |---|---|---|---|---|---|---|---|---|
-| `original-live-object-detection.mp4` | `liveYOLO-styleobject detection.mp4` | 16.3 s | 810 × 1440 | 63.0 MB → 10.9 MB | No | No | No | None in source |
-| `original-floor-hazard-detection.mp4` | `hazardfiltering.mp4` | 16.3 s | 810 × 1440 | 56.0 MB → 10.2 MB | No | No | No | None in source |
-| `original-pathway-ios-app.mp4` | `originalPathway phoneapp.mov` | 18.6 s | 786 × 1630 | 43.8 MB → 7.0 MB | **Yes** | No | No | None in source |
-| `original-incident-log.mp4` | `originalPathway phoneapp.mov` | 5.4 s | 786 × 1630 | (same source) → 0.6 MB | **Yes** | No | No | None in source |
+| `original-live-object-detection.mp4` | `liveYOLO-styleobject detection.mp4` | 16.3 s | 810 × 1440 | 63.0 MB → 6.7 MB | No | No | No | None in source |
+| `original-floor-hazard-detection.mp4` | `hazardfiltering.mp4` | 16.3 s | 810 × 1440 | 56.0 MB → 6.3 MB | No | No | No | None in source |
+| `original-pathway-ios-app.mp4` | `originalPathway phoneapp.mov` | 18.6 s | 786 × 1630 | 43.8 MB → 4.6 MB | **Yes** | No | No | None in source |
+| `original-incident-log.mp4` | `originalPathway phoneapp.mov` | 5.4 s | 786 × 1630 | (same source) → 0.4 MB | **Yes** | No | No | None in source |
 
 **What each one shows.** Verified frame by frame, not assumed from the filename:
 
@@ -94,10 +94,16 @@ directory. Items 2 and 3 are the same details redacted from
 `hackathon/whiteboard-planning-session.jpg` and from
 [PITCH_DECK_SUMMARY.md](../docs/PITCH_DECK_SUMMARY.md).
 
-The camera never moves, so fixed redaction boxes over windows 1–3 would be technically
-reliable. That work has not been done here because publishing the video at all is a decision
-about a named third party's face and name, which is not a decision this repository should
-make silently.
+A fixed-box redaction was built and rejected. The camera is on a tripod and never moves, but
+the **projected image does** — comparing the same region of the same slide at two moments
+gives a mean pixel difference of 22–38, and between 112 s and 130 s the interviewee's name
+block shifts right by roughly 110 px, down by 15 px and shrinks. Boxes calibrated on one
+frame missed at other times in the same window, leaving the name and photograph fully
+legible. Redacting this recording needs motion-tracked masks in an editor, not fixed
+coordinates.
+
+The alternative is consent. Two of the three items belong to people outside the team, so
+their agreement — not the team's — is what unlocks the recording.
 
 `thumbnails/original-final-pitch.jpg` is taken from **34 s** — the thesis slide, *"We mount
 standardised NHS walking frames to make them smart."* That frame contains none of the four
