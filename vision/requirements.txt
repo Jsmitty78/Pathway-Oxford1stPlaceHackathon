@@ -1,0 +1,5 @@
+# Dependencies for the original on-device hazard detector.
+# Pinned loosely — the hackathon build ran against whatever was current in March 2026.
+ultralytics>=8.3
+opencv-python>=4.10
+numpy>=2.0
