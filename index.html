@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pathway — smart walker retrofit prototype</title>
+    <meta
+      name="description"
+      content="Pathway turns a standard NHS walking frame into a fall-prevention system using a repurposed phone. Reconstructed prototype from the Oxford Venture 2026 Hackathon."
+    />
+    <link rel="stylesheet" href="./src/styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f1720'/><path d='M9 24V8h7a5 5 0 0 1 0 10h-3' stroke='%233ddc97' stroke-width='3' fill='none' stroke-linecap='round'/></svg>"
+    />
+  </head>
+  <body>
+    <a class="skipLink" href="#demo">Skip to the interactive demo</a>
+
+    <header class="siteNav">
+      <a class="brand" href="#top">
+        <span class="brandMark" aria-hidden="true">P</span>
+        <span class="brandText">
+          Pathway
+          <small>/ˈpɑːθweɪ/</small>
+        </span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#demo">Demo</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#validation">Validation</a>
+        <a href="#reconstruction">Reconstruction</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- ================================================================= -->
+      <section class="hero">
+        <div class="heroCopy">
+          <p class="eyebrow">
+            <span class="tag">Oxford Venture 2026 Hackathon</span>
+            <span class="tag tagMuted">Reconstructed prototype</span>
+          </p>
+          <h1>A standard walking frame that can see the floor in front of it.</h1>
+          <p class="lede">
+            Pathway clamps a <strong>repurposed old phone</strong> to an NHS walking frame and turns
+            it into a fall-prevention system: it detects trip hazards on the floor, maps the rooms a
+            user walks through, recognises a fall from the frame's angular acceleration, and pulls a
+            caregiver into the loop when it matters.
+          </p>
+          <p class="lede lede--muted">
+            A cost-driven, environmental mobility solution for an ageing population — built in one
+            day, for a unit cost of £0.24.
+          </p>
+          <div class="heroActions">
+            <a class="button buttonPrimary" href="#demo">Run the demo</a>
+            <a class="button" href="./docs/ARCHITECTURE.md">Read the architecture</a>
+          </div>
+        </div>
+
+        <ul class="statStrip">
+          <li>
+            <strong>220,000</strong>
+            <span>UK A&amp;E admissions from falls in 2024<cite>NICE</cite></span>
+          </li>
+          <li>
+            <strong>£2.3B</strong>
+            <span>annual cost of falls to the NHS<cite>NHS England</cite></span>
+          </li>
+          <li>
+            <strong>£0.24</strong>
+            <span>prototype retrofit unit cost<cite>10⁴× cheaper than a smart walker</cite></span>
+          </li>
+          <li>
+            <strong>96M</strong>
+            <span>older adults worldwide rely on walkers<cite>UK, US, JP, DE</cite></span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ================================================================= -->
+      <section id="demo" class="section">
+        <header class="sectionHead">
+          <p class="eyebrow">Interactive demo</p>
+          <h2>The pitch-deck demo, running on the real scoring code.</h2>
+          <p class="sectionLede">
+            Every number below comes from <code>src/pathwayEngine.js</code> — the same module the
+            test suite asserts against. The camera view is a reconstruction of the room used in the
+            hackathon demo video, rendered through a pinhole model of a phone clamped to the walker
+            crossbar, so the hazard filter operates on geometry it would genuinely see.
+          </p>
+        </header>
+
+        <div class="demoToolbar">
+          <div class="scenarioPicker">
+            <span class="fieldLabel" id="scenario-label">Scenario</span>
+            <div class="segmented" role="radiogroup" aria-labelledby="scenario-label" id="scenario-list"></div>
+          </div>
+
+          <div class="playControls">
+            <button class="button buttonPrimary" id="play-demo" type="button">
+              <span class="playIcon" aria-hidden="true"></span>
+              <span id="play-label">Play demo flow</span>
+            </button>
+            <button class="button" id="reset-demo" type="button">Reset</button>
+          </div>
+        </div>
+
+        <div class="demoGrid">
+          <!-- ---------------------------------------------------------- -->
+          <div class="demoStage">
+            <div class="walkerRig">
+              <div class="phone">
+                <div class="phoneNotch" aria-hidden="true"></div>
+                <div class="phoneScreen">
+                  <canvas
+                    id="camera"
+                    width="720"
+                    height="540"
+                    role="img"
+                    aria-label="Simulated walker-mounted camera view with detection overlays. All values are also shown as text in the readout panel."
+                  ></canvas>
+
+                  <div class="phoneChrome">
+                    <div class="phonePill" id="phone-pill">Pathway</div>
+                    <div class="phoneRail" aria-hidden="true">
+                      <span class="railButton">?</span>
+                      <span class="railButton">⚙</span>
+                      <span class="railButton railButton--alert" id="rail-alert">!</span>
+                      <span class="railButton">💬</span>
+                      <span class="railButton">⚑</span>
+                    </div>
+                    <div class="phoneBanner" id="phone-banner" hidden>
+                      <strong id="phone-banner-title">Hazard ahead</strong>
+                      <span id="phone-banner-body"></span>
+                    </div>
+                  </div>
+
+                  <!-- Fall-confirmation takeover, recreated from the deck -->
+                  <div class="helpScreen" id="help-screen" hidden>
+                    <p class="helpTitle">HELP</p>
+                    <p class="helpBody" id="help-body">
+                      Pathway detected a possible fall.<br />Contacting Emily in
+                      <strong id="help-countdown">15</strong>s.
+                    </p>
+                    <div class="helpActions">
+                      <button class="helpButton helpButton--emergency" type="button" id="help-now">
+                        Contact emergency
+                      </button>
+                      <button class="helpButton" type="button" id="help-cancel">
+                        Crisis averted
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="walkerFrame" aria-hidden="true">
+                <span class="walkerBar"></span>
+                <span class="walkerLeg walkerLeg--l"></span>
+                <span class="walkerLeg walkerLeg--r"></span>
+                <span class="walkerFoot walkerFoot--l"></span>
+                <span class="walkerFoot walkerFoot--r"></span>
+              </div>
+              <p class="rigCaption">
+                Repurposed phone, clamped to the crossbar — hands-free, no new hardware.
+              </p>
+            </div>
+
+            <div class="approachControl">
+              <label for="advance-slider">Distance walked toward the scene</label>
+              <input
+                type="range"
+                id="advance-slider"
+                min="0"
+                max="220"
+                step="1"
+                value="0"
+                aria-describedby="advance-readout"
+              />
+              <output id="advance-readout">0.00 m walked · nearest hazard 1.35 m</output>
+              <p class="hint">
+                Drag it. Objects grow and descend the frame; watch them cross the hazard band and
+                flip from tracked to flagged on their own.
+              </p>
+            </div>
+          </div>
+
+          <!-- ---------------------------------------------------------- -->
+          <div class="demoReadout">
+            <ol class="stageList" id="stage-list" aria-label="Pipeline stages"></ol>
+
+            <div class="panel panelStage">
+              <h3 id="stage-title">Dynamic object detection</h3>
+              <p id="stage-copy"></p>
+            </div>
+
+            <div class="panel">
+              <h3 class="panelTitle">Scores</h3>
+              <div class="meters">
+                <div class="meter">
+                  <span class="meterLabel">Fall risk</span>
+                  <div class="meterTrack"><span class="meterFill" id="fall-bar"></span></div>
+                  <strong class="meterValue" id="fall-score">0%</strong>
+                </div>
+                <p class="meterNote" id="fall-stage"></p>
+
+                <div class="meter">
+                  <span class="meterLabel">Hazard score</span>
+                  <div class="meterTrack"><span class="meterFill meterFill--amber" id="hazard-bar"></span></div>
+                  <strong class="meterValue" id="hazard-score">0%</strong>
+                </div>
+                <p class="meterNote" id="hazard-note"></p>
+
+                <div class="meter">
+                  <span class="meterLabel">Alert confidence</span>
+                  <div class="meterTrack"><span class="meterFill meterFill--blue" id="confidence-bar"></span></div>
+                  <strong class="meterValue" id="confidence-score">0%</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panelTriage" id="triage-panel">
+              <div class="triageHead">
+                <h3 class="panelTitle">Triage</h3>
+                <span class="badge" id="triage-level">stable</span>
+              </div>
+              <p class="triageMessage" id="triage-message" role="status" aria-live="polite"></p>
+              <p class="triageGuidance" id="triage-guidance"></p>
+            </div>
+
+            <div class="panel">
+              <h3 class="panelTitle">
+                Hazard queue
+                <span class="panelHint">ranked by risk</span>
+              </h3>
+              <ol class="hazardQueue" id="hazard-queue"></ol>
+            </div>
+
+            <details class="panel panelDetails">
+              <summary>
+                <h3 class="panelTitle">Why objects were filtered out</h3>
+              </summary>
+              <p class="detailsLede">
+                The admission rule is a direct port of <code>isHazard()</code> from the surviving
+                Python detector. Tracked objects still appear in the room map — they just are not
+                trip hazards.
+              </p>
+              <ul class="filterList" id="filter-list"></ul>
+            </details>
+
+            <details class="panel panelDetails">
+              <summary>
+                <h3 class="panelTitle">Fall-detection signals</h3>
+              </summary>
+              <ul class="signalList" id="signal-list"></ul>
+            </details>
+          </div>
+        </div>
+
+        <!-- ------------------------------------------------------------ -->
+        <div class="loopGrid">
+          <div class="panel">
+            <h3 class="panelTitle">
+              Closed-loop response
+              <span class="panelHint">what Pathway does next</span>
+            </h3>
+            <ol class="actionList" id="action-list"></ol>
+          </div>
+
+          <div class="panel panelDashboard">
+            <div class="dashboardHead">
+              <div>
+                <h3 class="panelTitle">Caregiver dashboard</h3>
+                <p class="panelHint">Emily · daughter · mock view</p>
+              </div>
+              <span class="deviceStatus" id="device-status">
+                <span class="dot"></span> Frame online
+              </span>
+            </div>
+            <ul class="eventLog" id="dashboard-log" aria-live="polite"></ul>
+            <p class="dashboardFoot">
+              Alerts are simulated in the browser. Wiring these to a real SMS and voice provider is
+              tracked in <a href="./docs/ROADMAP.md">the roadmap</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <section id="architecture" class="section">
+        <header class="sectionHead">
+          <p class="eyebrow">Technical architecture</p>
+          <h2>An ML backend on the phone, a deliberately dull frontend.</h2>
+          <p class="sectionLede">
+            This mirrors the architecture slide from the pitch deck. Three sensing branches feed one
+            event loop; the interface layer is intentionally simple because the interviews were
+            blunt that technology can be difficult for elderly users.
+          </p>
+        </header>
+
+        <div class="archGrid">
+          <article class="archColumn">
+            <h3>ML backend</h3>
+            <div class="archCard">
+              <h4>Hazard detection</h4>
+              <ul>
+                <li><span class="chip chipGreen">Computer vision</span> → dynamic-object detection</li>
+                <li><span class="chip chipPink">LiDAR room map</span> → fixed-object detection</li>
+                <li><span class="chip chipBlue">Hazard filtering</span> → ranked triage queue</li>
+              </ul>
+            </div>
+            <div class="archCard">
+              <h4>Pedestrian approach detection</h4>
+              <ul>
+                <li><span class="chip chipGreen">LiDAR depth</span> → human-form detection</li>
+                <li><span class="chip chipBlue">Rate-of-approach analysis</span></li>
+              </ul>
+              <p class="archNote">Outdoor branch — designed in the deck, not implemented here.</p>
+            </div>
+            <div class="archCard">
+              <h4>Fall detection</h4>
+              <ul>
+                <li><span class="chip chipGreen">Gyroscope + accelerometer</span></li>
+                <li><span class="chip chipBlue">Angular-acceleration analysis</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <div class="archArrow" aria-hidden="true">→</div>
+
+          <article class="archColumn">
+            <h3>iOS frontend</h3>
+            <div class="archCard">
+              <h4>User guidance</h4>
+              <ul>
+                <li>Visual directional guidance</li>
+                <li>Familiar-voice auditory guidance</li>
+              </ul>
+            </div>
+            <div class="archCard">
+              <h4>Pedestrian attention acquisition</h4>
+              <ul>
+                <li>Torch strobe</li>
+              </ul>
+            </div>
+            <div class="archCard">
+              <h4>Bystander assistance</h4>
+              <ul>
+                <li>Torch strobe</li>
+                <li>Audio / visual alert</li>
+                <li>SMS with location, then a phone call</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="moduleTable">
+          <h3>Reconstructed modules</h3>
+          <table>
+            <caption class="visuallyHidden">Core modules and their responsibilities</caption>
+            <thead>
+              <tr><th scope="col">Module</th><th scope="col">Responsibility</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>projectDetection</code></td>
+                <td>Pinhole projection of world-space objects through the walker-mounted camera.</td>
+              </tr>
+              <tr>
+                <td><code>classifyDetection</code></td>
+                <td>Port of the original Python <code>isHazard()</code> frame-band admission rule.</td>
+              </tr>
+              <tr>
+                <td><code>scoreHazards</code></td>
+                <td>Ranks admitted hazards on proximity, path alignment, class severity and confidence.</td>
+              </tr>
+              <tr>
+                <td><code>detectFallRisk</code></td>
+                <td>Weighted six-signal fall scorer led by angular acceleration.</td>
+              </tr>
+              <tr>
+                <td><code>planGuidance</code></td>
+                <td>D.A.I. corridor search: steer around obstacles, step over low lips.</td>
+              </tr>
+              <tr>
+                <td><code>triageEvent</code></td>
+                <td>Blends motion and scene evidence into an escalation ladder.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <section id="validation" class="section sectionAlt">
+        <header class="sectionHead">
+          <p class="eyebrow">Validation</p>
+          <h2>Built alongside the people who would use it.</h2>
+        </header>
+
+        <div class="validationGrid">
+          <ul class="validationStats">
+            <li><strong>32</strong><span>public interviews conducted around Oxford</span></li>
+            <li><strong>68%</strong><span>knew an adult who had fallen in the last year</span></li>
+            <li><strong>4</strong><span>care homes contacted, 2 interested in a demo</span></li>
+            <li><strong>2</strong><span>elderly-care experts expressed interest</span></li>
+          </ul>
+
+          <blockquote class="quote">
+            <p>
+              “My <strong>biggest fear</strong> isn't falling myself; it's my parents falling when
+              <strong>no one's there to catch them</strong>.”
+            </p>
+            <footer>Sarah, 42, from Oxfordshire — quoted in the Pathway pitch deck</footer>
+          </blockquote>
+        </div>
+
+        <div class="findings">
+          <h3>What the interviews changed</h3>
+          <ul>
+            <li>
+              <strong>Most walker users stay indoors</strong>, and the biggest risks are trip hazards
+              inside — so indoor hazard detection became the core of the product, not an add-on.
+            </li>
+            <li>
+              <strong>Caregivers want to be in the loop.</strong> That is why every event ends in a
+              triage decision rather than a silent log.
+            </li>
+            <li>
+              <strong>Technology can be hard for elderly users.</strong> The on-device interface is
+              one pill, one rail of large buttons, and a full-screen confirmation with a way out.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <section id="reconstruction" class="section">
+        <header class="sectionHead">
+          <p class="eyebrow">Honest notes</p>
+          <h2>What is original, and what was rebuilt.</h2>
+        </header>
+
+        <div class="reconGrid">
+          <div class="reconCard reconCard--kept">
+            <h3>Survived the hackathon</h3>
+            <ul>
+              <li>The live YOLO hazard detector (<code>vision/hazard_detector.py</code>)</li>
+              <li>The frame-geometry hazard rule, ported verbatim into JavaScript</li>
+              <li>The pitch deck, demo footage and technical architecture slide</li>
+            </ul>
+          </div>
+          <div class="reconCard reconCard--rebuilt">
+            <h3>Rebuilt for this repository</h3>
+            <ul>
+              <li>Fall-risk, hazard-scoring, guidance and triage modules</li>
+              <li>The camera model and the browser demo</li>
+              <li>Sample scenarios and the test suite</li>
+            </ul>
+          </div>
+          <div class="reconCard reconCard--missing">
+            <h3>Still missing</h3>
+            <ul>
+              <li>The iOS app source (SwiftUI + RoomPlan + CoreMotion)</li>
+              <li>The real SMS / voice call integration</li>
+              <li>Recorded sensor traces from the demo runs</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="reconFoot">
+          Full detail in <a href="./docs/RECONSTRUCTION_NOTES.md">docs/RECONSTRUCTION_NOTES.md</a>.
+          This is a hackathon prototype and a portfolio artefact — not a medical device, and not
+          validated for clinical use.
+        </p>
+      </section>
+    </main>
+
+    <footer class="siteFooter">
+      <div>
+        <p class="footerBrand">Pathway</p>
+        <p>Oxford Venture 2026 Hackathon · Jake Smith · Caleb Byrne · Antony He · Aiyush Gupta</p>
+      </div>
+      <p class="footerNote">MIT licensed · reconstructed prototype, not a medical device</p>
+    </footer>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

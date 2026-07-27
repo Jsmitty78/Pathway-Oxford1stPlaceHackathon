@@ -1,0 +1,25 @@
+{
+  "name": "pathway",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Reconstructed prototype of Pathway, a low-cost smart-walker retrofit built at the Oxford Venture 2026 Hackathon.",
+  "keywords": [
+    "assistive-technology",
+    "fall-detection",
+    "hazard-detection",
+    "computer-vision",
+    "hackathon"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "python3 -m http.server 5173",
+    "test": "node --test test/*.test.js",
+    "check": "node --check src/app.js && node --check src/pathwayEngine.js && npm test"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
