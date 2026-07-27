@@ -23,5 +23,10 @@ venv/
 # Extracted stills live in assets/ instead. See docs/PITCH_DECK_SUMMARY.md.
 Pathway.pptx
 
+# Original camera-roll photographs from the event, including HEIC files GitHub cannot
+# render. Web-ready, redacted versions are committed in assets/hackathon/ instead —
+# committing both would triple the repository size. See assets/README.md.
+media-images/
+
 # Claude Code local settings
 .claude/settings.local.json

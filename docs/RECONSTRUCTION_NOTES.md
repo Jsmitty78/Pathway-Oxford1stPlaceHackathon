@@ -1,9 +1,10 @@
 # Reconstruction notes
 
-Pathway was built in a day at the Oxford Venture 2026 Hackathon. Most of the code did not
-survive the event. This repository rebuilds it into something readable and runnable, and
-this document records exactly where the line falls between what was recovered and what was
-rewritten.
+Pathway was built in 36 hours at the Oxford Venture 2026 Hackathon, where it won 1st place in
+a field of 115 participants. Most of the code did not survive the event. This repository
+rebuilds it into something readable and runnable, and this document records exactly where the
+line falls between what was recovered and what was rewritten. The account of the build itself
+is in [HACKATHON_STORY.md](./HACKATHON_STORY.md).
 
 The short version: **the hazard detector is original, the decision layer around it is not.**
 
@@ -16,6 +17,7 @@ The short version: **the hazard detector is original, the decision layer around 
 | `vision/hazard_detector.py` | Original code, 261 lines. Was `yolo_example_live_2.py`. |
 | `Pathway.pptx` | Original 35-slide deck, including four demo videos and the architecture diagram. |
 | Demo footage | Original. Frames extracted into `assets/`. |
+| Event photographs | Original. Eight, taken by the team during the hackathon; web-ready versions in `assets/hackathon/`. |
 | `LICENSE` | Original MIT licence, © 2026 Caleb Byrne. |
 | Old `README.md` | Two sentences describing the YOLO detector. |
 
@@ -95,8 +97,10 @@ Nothing in this repository can substitute for these:
   of guessed.
 - **The Core ML conversion.** The surviving script runs Ultralytics on CPU. Whatever ran
   on-device is gone.
-- **The hardware mount.** No CAD files. The photographs show a laser-cut clamp on an
-  improvised frame built from lacrosse sticks.
+- **The hardware mount.** No CAD files survived, only the printed object itself. The
+  photographs show a 3D-printed mount on a frame improvised from lacrosse sticks and duct
+  tape — printed overnight on a borrowed printer, as described in
+  [HACKATHON_STORY.md](./HACKATHON_STORY.md).
 
 If any of this resurfaces, the natural homes are `ios/`, `src/alerts/` and `data/traces/`.
 

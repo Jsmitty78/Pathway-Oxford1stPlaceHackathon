@@ -2,15 +2,35 @@
 
 # Pathway
 
-**Turning a standard NHS walking frame into a fall-prevention system, using a phone that was already in a drawer.**
+**Turning a walking frame the user already owns, and a smartphone already in a drawer,
+into a fall-prevention and caregiver-alert system.**
 
-Oxford Venture 2026 Hackathon · reconstructed prototype
+### 🏆 1st Place, Oxford Venture 2026 Hackathon
 
-[Demo](#demo) · [Architecture](docs/ARCHITECTURE.md) · [Technical decisions](docs/TECHNICAL_DECISIONS.md) · [Reconstruction notes](docs/RECONSTRUCTION_NOTES.md) · [Roadmap](docs/ROADMAP.md)
+Selected from a field of 115 participants · built in 36 hours by a team that met at the event
 
-![Pathway demo — D.A.I. indoor navigation stage](assets/demo-screenshot.jpg)
+[![CI](https://github.com/Jsmitty78/Pathway/actions/workflows/ci.yml/badge.svg)](https://github.com/Jsmitty78/Pathway/actions/workflows/ci.yml)
+[![Tests](https://img.shields.io/badge/tests-27%20passing-brightgreen)](test/hazardEngine.test.js)
+[![Licence](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
+[![Demo](https://img.shields.io/badge/demo-no%20build%20step-8b5cf6)](#run-the-demo)
+
+[Run the demo](#run-the-demo) · [The 36-hour build story](docs/HACKATHON_STORY.md) ·
+[Architecture](docs/ARCHITECTURE.md) · [Technical decisions](docs/TECHNICAL_DECISIONS.md) ·
+[Reconstruction notes](docs/RECONSTRUCTION_NOTES.md) · [Roadmap](docs/ROADMAP.md)
+
+<img src="assets/hackathon/first-place-team.jpg" alt="The four-person Pathway team holding the first-prize certificate in front of the announcement screen" width="720">
+
+<sub><b>The team after winning 1st place in a field of 115 participants.</b><br>
+Four strangers at the start of the hackathon. One first-place team 36 hours later.</sub>
 
 </div>
+
+> [!NOTE]
+> **This repository is a reconstructed, runnable portfolio version of the original hackathon
+> prototype.** The original iOS app did not survive the event. The surviving Python hazard
+> detector is here unchanged; the decision engine around it was rebuilt in JavaScript and is
+> covered by 27 tests. Exactly what is original and what is rebuilt is listed in
+> [Original versus reconstructed](#original-versus-reconstructed).
 
 ---
 
@@ -20,9 +40,9 @@ Oxford Venture 2026 Hackathon · reconstructed prototype
 - Falls are the **leading cause of injury-related death** in over-65s: 38,000+ deaths in 2021 — *US CDC*
 - Falls cost the NHS around **£2.3 billion** a year — *NHS England*
 
-The tools that exist are either free and dumb, or smart and unaffordable. The NHS hands out
-walking frames for nothing. The one competing smart walker starts at **$2,499** plus a
-$50/month subscription, and six years after founding it still is not shipping.
+The tools that exist are either free and unintelligent, or intelligent and unaffordable. The
+NHS hands out walking frames for nothing. The one competing smart walker starts at **$2,499**
+plus a $50/month subscription, and six years after founding it still is not shipping.
 
 And the risk is mostly indoors. From 32 interviews around Oxford: most walker users stay
 inside, and the biggest danger is the rug edge, the door threshold, the bag left in the
@@ -30,13 +50,13 @@ hallway.
 
 > *"My **biggest fear** isn't falling myself; it's my parents falling when **no one's there
 > to catch them**."*
-> — Sarah, 42, from Oxfordshire
+> — Sarah, 42, from Oxfordshire · quoted from the pitch deck
 
 ## The solution
 
 Clamp a **repurposed old phone** to the crossbar of a frame the user already has. That is
-the whole hardware story: **£0.24 of unit cost**, roughly 10⁴× cheaper than the alternative,
-and one fewer phone in landfill.
+the whole hardware story — the deck puts the marginal cost at **£0.24**, roughly 10⁴× cheaper
+than the alternative, and it is one fewer phone in landfill.
 
 The phone then does four things:
 
@@ -49,7 +69,7 @@ The phone then does four things:
 
 <table>
 <tr>
-<td width="33%"><img src="assets/prototype-walker-mount.jpg" alt="Phone mount clamped to the frame crossbar"><br><sub><b>The rig.</b> A clamp on a frame improvised from lacrosse sticks.</sub></td>
+<td width="33%"><img src="assets/prototype-walker-mount.jpg" alt="3D-printed phone mount clamped to the improvised frame crossbar"><br><sub><b>The rig.</b> A printed mount on a frame improvised from lacrosse sticks.</sub></td>
 <td width="33%"><img src="assets/demo-dynamic-detection.jpg" alt="Live YOLO detection over the demo living room"><br><sub><b>Original demo footage.</b> Live detection, hackathon build.</sub></td>
 <td width="33%"><img src="assets/demo-app-ui.jpg" alt="The Pathway app running on the mounted phone"><br><sub><b>The app.</b> One pill, one rail of large buttons.</sub></td>
 </tr>
@@ -57,7 +77,160 @@ The phone then does four things:
 
 ---
 
-## Demo
+## Built in 36 hours
+
+Jake Smith, Caleb Byrne, Antony He and Aiyush Gupta met for the first time at the Oxford
+Venture 2026 Hackathon. There was no pre-existing team and no idea agreed in advance — they
+formed the team on site, chose the problem together, and took Pathway from a blank whiteboard
+to a first-place working prototype in the following 36 hours.
+
+Pathway was not built with ideal laboratory equipment. It was built overnight from whatever
+the team could reach.
+
+<details open>
+<summary><b>The 36-hour timeline</b></summary>
+
+<br>
+
+| | |
+|---|---|
+| **Hour 0** | Four strangers form a team, pick older-adult falls, and start on the whiteboard |
+| **Hours 3–8** | Out into Oxford: **32 interviews** with members of the public. **68%** knew an older adult who had fallen in the past year. The finding that most walker users stay *indoors* moves indoor hazard detection from a feature to the core of the product |
+| **In parallel** | **Four care homes** contacted; **two expressed interest** in a follow-up test or a scheduled demonstration. **Two elderly-care experts** also expressed interest |
+| **Hardware problem** | A retrofit needs something to retrofit. **Three hospitals and Oxford medical contacts** were asked about borrowing a walking frame. It was the weekend; none could be released in time |
+| **The workaround** | Rather than drop the hardware demonstration, the team improvised a frame from **old lacrosse sticks and duct tape** — enough to hold the phone at a realistic height and be tipped over on purpose |
+| **~02:00** | A friend agreed to lend the team a **3D printer**. The team walked roughly **45 minutes** to collect it, carried it back, then designed and printed a smartphone holder for the frame |
+| **Through the night** | Mount, walk the frame at hazards, tip it over, check what fired, adjust, repeat |
+| **Hour 36** | Final pitch — and the live fall demonstration below |
+
+</details>
+
+The improvised frame is exactly that: **a hackathon rig, not production hardware.** Nothing
+about its geometry, stability or materials has been validated against a real walking frame.
+
+> **Read the full 36-hour build story → [docs/HACKATHON_STORY.md](docs/HACKATHON_STORY.md)**
+
+### From the hackathon
+
+<table>
+<tr>
+<td width="33%"><img src="assets/hackathon/whiteboard-planning-session.jpg" alt="A glass whiteboard covered in the team's problem framing, falls statistics and pitch structure"></td>
+<td width="33%"><img src="assets/hackathon/overnight-team-working.jpg" alt="Two team members working at laptops in the hackathon room, with 3D-printer filament on the table"></td>
+<td width="33%"><img src="assets/hackathon/oxford-street-interview.jpg" alt="A team member interviewing a member of the public who uses a walking frame, on an Oxford street"></td>
+</tr>
+<tr>
+<td><sub><b>Mapping the problem</b> during the whiteboard session.</sub></td>
+<td><sub><b>Building through the night</b> after forming the team at the event.</sub></td>
+<td><sub><b>Speaking with members of the public</b> about older-adult falls.</sub></td>
+</tr>
+<tr>
+<td><img src="assets/hackathon/walker-fall-test.jpg" alt="A team member assembling the lacrosse-stick frame with 3D-printed brackets during fall testing"></td>
+<td><img src="assets/hackathon/outdoor-walker-test.jpg" alt="A team member pushing the improvised walker frame with the phone mounted, on a wet Oxford pavement"></td>
+<td><img src="assets/hackathon/final-presentation.jpg" alt="A team member presenting the Pathway title slide to the judges"></td>
+</tr>
+<tr>
+<td><sub><b>Building the improvised frame</b> for the simulated-fall tests.</sub></td>
+<td><sub><b>Testing the improvised walker prototype</b> outdoors in Oxford.</sub></td>
+<td><sub><b>Presenting the final Pathway prototype</b> to the judges.</sub></td>
+</tr>
+</table>
+
+<div align="center">
+<img src="assets/hackathon/first-place-announcement.jpg" alt="The announcement screen reading Oxford Venture Hackathon, 1st Prize, Pathway" width="620"><br>
+<sub><b>The first-place result announced at the Oxford Venture 2026 Hackathon.</b></sub>
+</div>
+
+Photograph provenance, including two privacy redactions, is documented in
+[assets/README.md](assets/README.md).
+
+---
+
+## The original live demonstration
+
+In the final presentation, the team triggered a simulated fall by **tipping the prototype
+over in front of the judges**. Pathway detected the event and initiated the escalation
+workflow, **placing a real phone call to the team's phone, live in the room.**
+
+The demonstration showed that the detection-to-contact loop could run end to end — it was not
+only a visual mock-up — while remaining a hackathon prototype rather than a clinically
+validated safety system.
+
+> [!IMPORTANT]
+> That call happened during the **original hackathon demo**, on the team's own phone and
+> contacts. **The browser demo in this repository simulates the escalation flow and is not
+> connected to any live SMS or voice service.** No real phone number, address or contact name
+> appears anywhere in this repository.
+
+<details>
+<summary><b>Why it won</b></summary>
+
+<br>
+
+Four things the judges could check on the day, all of which are documented here:
+
+- **A real end-to-end loop, not a slideshow.** The fall was simulated physically and the
+  escalation ended in a phone call ringing in the room.
+- **Field evidence behind the product decisions.** 32 interviews around Oxford, and a
+  specific finding — walker users are mostly indoors — that visibly changed what was built.
+- **A cost argument that was hard to argue with.** A free frame plus a phone that already
+  exists, against a $2,499 competitor that had not shipped in six years.
+- **Hardware that existed.** Improvised from lacrosse sticks and a borrowed 3D printer, but
+  physically present, mounted and demonstrable rather than described.
+
+</details>
+
+---
+
+## Oxford field validation
+
+The team did not rely on online research alone. They left the venue and spoke to members of
+the public around Oxford.
+
+| | |
+|---|---|
+| **32** | interviews with members of the public around Oxford |
+| **68%** | knew an older adult who had fallen in the previous year |
+| **4** | care homes contacted; **2** expressed interest in a follow-up test or a scheduled demonstration |
+| **2** | elderly-care experts expressed interest |
+
+Neither care home became a formal partner and no trial was agreed. The figures are reported
+as the team presented them and are not independently verified in this repository.
+
+Three findings changed the build:
+
+- **Most walker users stay indoors** → indoor hazard detection became the core of the
+  product, not an add-on, and the outdoor pedestrian branch was descoped
+- **Caregivers want to be in the loop** → every event ends in a triage decision, not a
+  silent log
+- **Technology can be difficult for elderly users** → one pill, one rail of large buttons,
+  and a full-screen confirmation with an equally prominent way out
+
+Market sizing, competitive analysis and ICPs are summarised in
+[docs/PITCH_DECK_SUMMARY.md](docs/PITCH_DECK_SUMMARY.md).
+
+---
+
+## Reuse rather than replacement
+
+Pathway explores whether existing hardware can be reused rather than replaced.
+
+A **standard walking frame the user already owns** can be retrofitted — nothing needs to be
+manufactured to replace it. A **retired smartphone** already contains a camera, an
+accelerometer, a gyroscope, connectivity and compute, which makes it a practical platform for
+a low-cost assistive retrofit rather than a device to be built from scratch.
+
+Two consequences follow. It could reduce the need to manufacture an entirely new smart
+mobility device for each user, and it creates a use for phones that would otherwise sit
+unused in a drawer or become electronic waste.
+
+The pitch deck cites that 40.4% of people replace their phone every two to three years and
+that over five billion phones are discarded worldwide each year. **No environmental impact
+has been measured for Pathway itself**, and none is claimed here — this is a design direction,
+not a quantified result.
+
+---
+
+## Run the demo
 
 No dependencies, no build step.
 
@@ -76,6 +249,8 @@ npm run check      # syntax check + tests
 ```
 
 Requires Node 18+ for the tests. The demo itself needs only a browser.
+
+![Pathway demo — D.A.I. indoor navigation stage](assets/demo-screenshot.jpg)
 
 ### What to try
 
@@ -212,48 +387,27 @@ was corrected, not the test.
 
 ---
 
-## Reconstruction
+## Original versus reconstructed
 
 This repository is rebuilt from the pitch deck and the surviving code. The split:
 
 | | |
 |---|---|
-| ✅ **Original** | [`vision/hazard_detector.py`](vision/) — the live YOLO detector, 261 lines, three compatibility fixes marked inline. The deck, the demo footage, the architecture slide. |
-| 🔧 **Rebuilt** | The camera model, hazard scoring, fall detection, guidance, triage, the browser demo, the tests, these docs. |
-| ❌ **Still missing** | The iOS app (SwiftUI + RoomPlan + CoreMotion), the real SMS/voice integration, and — most valuably — **recorded sensor traces**. Every motion value in `data/sampleEvents.js` is synthesised because none survived. |
+| ✅ **Original** | [`vision/hazard_detector.py`](vision/) — the live YOLO detector, 261 lines, three compatibility fixes marked inline. The deck, the demo footage, the architecture slide, the physical prototype and its printed mount, the live phone-call demonstration, the field interviews, and the photographs in [`assets/hackathon/`](assets/hackathon). |
+| 🔧 **Rebuilt** | The browser interface, the JavaScript scoring engine, the camera projection model, the synthetic motion scenarios, the triage model, the mock caregiver dashboard, the automated tests, and these docs. |
+| ❌ **Still missing** | The iOS app (SwiftUI + RoomPlan + CoreMotion), the original sensor recordings, the real production SMS/voice integration, the Core ML deployment code, and clinically validated fall thresholds. Every motion value in `data/sampleEvents.js` is synthesised because none survived. |
 
 Every weight and threshold in the engine is an engineering judgement call, not a
 measurement. Nothing here has been validated against a real fall.
 [docs/RECONSTRUCTION_NOTES.md](docs/RECONSTRUCTION_NOTES.md) lists exactly which numbers are
 reconstructed and which interpretations are inferences.
 
+Reconstructed algorithms are never presented as original hackathon code — the distinction is
+restated in [`vision/README.md`](vision/README.md), in
+[RECONSTRUCTION_NOTES.md](docs/RECONSTRUCTION_NOTES.md) and in the demo itself.
+
 **This is a hackathon prototype and a portfolio artefact. It is not a medical device and it
 is not clinically validated.**
-
----
-
-## Validation
-
-From the pitch deck, reported as the team presented it:
-
-| | |
-|---|---|
-| **32** | public interviews conducted around Oxford |
-| **68%** | knew an adult who had fallen in the last year |
-| **4** | care homes contacted; **2** interested in a scheduled demo |
-| **2** | elderly-care experts expressed interest |
-
-Three findings changed the build:
-
-- **Most walker users stay indoors** → indoor hazard detection became the core of the
-  product, not an add-on, and the outdoor pedestrian branch was descoped
-- **Caregivers want to be in the loop** → every event ends in a triage decision, not a
-  silent log
-- **Technology can be difficult for elderly users** → one pill, one rail of large buttons,
-  and a full-screen confirmation with an equally prominent way out
-
-Market sizing, competitive analysis and ICPs are summarised in
-[docs/PITCH_DECK_SUMMARY.md](docs/PITCH_DECK_SUMMARY.md).
 
 ---
 
@@ -278,8 +432,9 @@ test/hazardEngine.test.js   27 tests
 vision/
   hazard_detector.py        ORIGINAL hackathon detector
   requirements.txt
-docs/                       architecture, decisions, reconstruction, roadmap, a11y
+docs/                       story, architecture, decisions, reconstruction, roadmap, a11y
 assets/                     stills recovered from the pitch deck
+  hackathon/                photographs from the event
 ```
 
 ## Deploying the demo
@@ -303,7 +458,8 @@ message is an ARIA live region. Details and the known gaps in
 
 ## Team
 
-Built at the Oxford Venture 2026 Hackathon by:
+The four team members met for the first time at the Oxford Venture 2026 Hackathon, formed the
+team on site, and built Pathway together over the following 36 hours.
 
 | | |
 |---|---|
@@ -312,11 +468,25 @@ Built at the Oxford Venture 2026 Hackathon by:
 | **Antony He** | CAD & market research |
 | **Aiyush Gupta** | Product & strategy |
 
+The work spanned user research and street interviews, software architecture, computer
+vision, CAD and 3D printing, physical prototyping, market validation, and the final
+presentation. No one part of it belongs to one person.
+
+## Safety and clinical disclaimer
+
+Pathway is a **hackathon prototype and a portfolio artefact**. It is **not a medical device**,
+it has **not been clinically validated**, and it has never been tested against a real fall.
+The fall-detection thresholds are engineering judgement, not fitted parameters. It cannot
+prevent every fall, and it must not be relied on by anyone at risk of falling or by anyone
+responsible for their care.
+
 ## Licence
 
 [MIT](LICENSE) © 2026 Caleb Byrne.
 
-The pitch-deck stills in `assets/` are the team's own material, included to document the
-original demo. Two screenshots from the deck were deliberately excluded because they contain
-a residential address and a personal phone number; the demo recreates those screens with
-placeholder data.
+The pitch-deck stills and event photographs in `assets/` are the team's own material,
+included to document the original prototype and the build. Two deck screenshots were
+deliberately excluded because they contain a residential address and a personal phone
+number; the demo recreates those screens with placeholder data. One published photograph has
+a member of the public's face obscured and one has two text blocks redacted — both are
+recorded in [assets/README.md](assets/README.md).
