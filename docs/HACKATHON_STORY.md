@@ -125,6 +125,28 @@ watch whether the fall logic fired, adjust, repeat.
 </tr>
 </table>
 
+## What the footage caught
+
+Four recordings from those hours survived, and they are the closest thing left to the
+original build actually running. They are in [`assets/videos/`](../assets/videos) and are
+laid out in the [README](../README.md#original-hackathon-footage).
+
+Two are camera recordings of the detector: one pass through the test lounge with everything
+boxed and labelled, and the same pass with the hazard rule applied, where the couch and the
+mugs and the table all drop away and only the soft toy on the floor keeps a red box. Watching
+them back to back is the clearest statement of what Pathway actually did.
+
+The other two are screen recordings of the iOS app — the control rail, a "Rug detected"
+toast, a "Teddy bear detected" toast, and the incident log listing a warped rug at one second
+and a floor obstacle at ten, each with a captured still and a timestamp.
+
+That log is the part worth pausing on. It is the "caregivers want to be in the loop" finding
+from the street interviews, turned into a screen, inside 36 hours.
+
+The full pitch was also filmed, and is **not published** — the projected slides carry a real
+phone number, a named individual and a named care home. See
+[assets/README.md](../assets/README.md) for the detail.
+
 ## The live demonstration
 
 The final presentation ended with the demonstration the team had spent the night earning.
@@ -193,8 +215,8 @@ The distinction matters, so it is stated in every document rather than assumed.
 **Original — produced during the 36 hours:** the surviving hazard detector
 [`vision/hazard_detector.py`](../vision/hazard_detector.py), the 35-slide pitch deck and its
 demo footage, the architecture slide, the physical prototype and its 3D-printed mount, the
-live phone-call demonstration, the 32 field interviews and the care-home outreach, and the
-photographs on this page.
+live phone-call demonstration, the 32 field interviews and the care-home outreach, the
+photographs on this page, and the video in [`assets/videos/`](../assets/videos).
 
 **Reconstructed — written afterwards for this repository:** the browser interface, the
 JavaScript engine in [`src/pathwayEngine.js`](../src/pathwayEngine.js), the camera
@@ -202,9 +224,10 @@ projection model, the hazard scoring and triage models, the synthetic motion sce
 [`data/sampleEvents.js`](../data/sampleEvents.js), the mock caregiver dashboard, the 27
 automated tests, and this documentation set.
 
-**Still missing, and not reconstructable:** the original iOS app (SwiftUI, RoomPlan,
-CoreMotion), the recorded sensor traces, the real SMS and voice integration, the Core ML
-deployment code, and any clinically validated fall thresholds.
+**Still missing, and not reconstructable:** the original iOS app **source** (SwiftUI,
+RoomPlan, CoreMotion), the recorded sensor traces, the real SMS and voice integration, the
+Core ML deployment code, and any clinically validated fall thresholds. The footage shows the
+app running; it does not bring the code back.
 
 ---
 

@@ -5,6 +5,103 @@ Provenance for everything in this directory.
 - [`assets/`](.) — stills recovered from the original pitch deck, plus two screenshots of the
   reconstructed browser demo.
 - [`assets/hackathon/`](./hackathon) — photographs taken by the team during the event.
+- [`assets/videos/`](./videos) — video recorded during the event, showing the original
+  detector and the original iOS app running.
+
+---
+
+## Hackathon video — `assets/videos/`
+
+**All four clips are original hackathon footage.** They are recordings of the detector and
+the iOS app that ran during the event — not recordings of the reconstructed browser demo in
+this repository. None of them has been re-created, re-shot or re-rendered.
+
+Sources live in `media-videos/`, which is git-ignored: 692 MB of camera-roll originals, one
+of which cannot be published at all (see [Full pitch](#full-pitch--not-published) below).
+
+Encoding applied to all four: **H.264 / yuv420p, 30 fps, `+faststart`** for progressive
+playback in the browser, **no audio track** (none of the three sources had one).
+
+| Final file | Original | Duration | Dimensions | Original → final | Trimmed | Cropped | Blurred | Audio |
+|---|---|---|---|---|---|---|---|---|
+| `original-live-object-detection.mp4` | `liveYOLO-styleobject detection.mp4` | 16.3 s | 810 × 1440 | 63.0 MB → 10.9 MB | No | No | No | None in source |
+| `original-floor-hazard-detection.mp4` | `hazardfiltering.mp4` | 16.3 s | 810 × 1440 | 56.0 MB → 10.2 MB | No | No | No | None in source |
+| `original-pathway-ios-app.mp4` | `originalPathway phoneapp.mov` | 18.6 s | 786 × 1630 | 43.8 MB → 7.0 MB | **Yes** | No | No | None in source |
+| `original-incident-log.mp4` | `originalPathway phoneapp.mov` | 5.4 s | 786 × 1630 | (same source) → 0.6 MB | **Yes** | No | No | None in source |
+
+**What each one shows.** Verified frame by frame, not assumed from the filename:
+
+- **`original-live-object-detection.mp4`** — the surviving detector running over a walk
+  through the test lounge, drawing green boxes and confidence labels over everything it
+  recognises: `couch 0.92`, `teddy bear 0.72`, cups, the coffee table. Nothing is judged yet.
+  A rug with a curled-back edge is visible on the floor throughout.
+- **`original-floor-hazard-detection.mp4`** — the same walk with the hazard rule applied.
+  The couch, the mugs, the apple and the table get no box at all; only the teddy bear on the
+  floor is promoted, with a thick red box, once it enters the hazard band. This is the
+  original behaviour that [`classifyDetection()`](../src/pathwayEngine.js) ports.
+- **`original-pathway-ios-app.mp4`** — the original Pathway iOS app: the title pill, the
+  left rail of large circular controls, a "Rug detected" toast with a steer arrow, then a
+  "Teddy bear detected" toast with a red box on the floor object.
+- **`original-incident-log.mp4`** — the app's Incident Log sheet, listing
+  `t = 1s — Warped rug detected. Trip hazard ahead.` and
+  `t = 10s — Teddy bear detected on floor. Trip hazard ahead.`, both dated 21st Feb 2026,
+  each with a captured still.
+
+### Two accuracy notes about the app recording
+
+**It is a simulator recording, not a phone held in a room.** The clip opens on a card reading
+*"Demo Video Paused — tap play to resume the mockup preview."* The app is being driven from a
+recorded walkthrough as its camera source, and the last seconds of the source show Xcode
+behind it. The interface, the detection overlays, the toasts and the incident log are all the
+real app; the camera feed behind them is a recording. Nothing in this repository describes
+this clip as a live camera session.
+
+**It was trimmed for that reason.** The source runs 27.9 s and ends by switching to Xcode.
+The published app clip stops at 18.6 s and the incident-log clip covers 18.4–23.8 s, so the
+IDE reveal at ~25.5 s is not published. No content was removed other than that tail.
+
+### Privacy review of the published clips
+
+Every frame of all three sources was inspected. **Nothing was blurred or redacted, because
+nothing needed to be.** Specifically checked for and not present: phone numbers, addresses,
+map pins, contact names, notifications, private messages, email addresses, browser tabs,
+login screens, QR codes, ID cards and account details. No person appears in any of the four
+published clips. None of the sources carries an audio track, so there is no private
+conversation to remove.
+
+The only on-screen text is the app's own UI, the detector's own labels, and a simulator
+status bar showing `01:54` with no carrier name.
+
+### Full pitch — not published
+
+`FinalPitchDemo.MOV` — 552.9 MB, 7 min 56 s, 1920 × 1080, HEVC, 30 fps, stereo AAC plus a
+four-channel spatial track. Filmed on a tripod from the back of the lecture theatre. The
+slides are legible at full resolution, the presenters are audible, and the live-demo segment
+is clearly visible.
+
+**It is deliberately not committed and not published anywhere — not in the repository, not as
+a Release asset, and not on any video host.** Four things in it would be published with it:
+
+| # | What | Where | Legible? |
+|---|---|---|---|
+| 1 | A **real UK mobile number** and a **contact name** on the projected outbound-call mockup | ≈ 238–262 s | Yes — transcribable at full resolution, on both projector screens |
+| 2 | A **named individual** with a **portrait photograph**, quoted on the "Validation Synthesis" slides | ≈ 100–135 s | Yes — name and face both clear |
+| 3 | The **name of a care home** the team had contacted, on the closing slides | ≈ 320–460 s | Yes |
+| 4 | An audience of **other hackathon participants**, filmed without documented consent | throughout | Mostly from behind |
+
+Item 1 is the same call screen the team already excluded from the pitch-deck stills in this
+directory. Items 2 and 3 are the same details redacted from
+`hackathon/whiteboard-planning-session.jpg` and from
+[PITCH_DECK_SUMMARY.md](../docs/PITCH_DECK_SUMMARY.md).
+
+The camera never moves, so fixed redaction boxes over windows 1–3 would be technically
+reliable. That work has not been done here because publishing the video at all is a decision
+about a named third party's face and name, which is not a decision this repository should
+make silently.
+
+`thumbnails/original-final-pitch.jpg` is taken from **34 s** — the thesis slide, *"We mount
+standardised NHS walking frames to make them smart."* That frame contains none of the four
+items above.
 
 ---
 
@@ -116,6 +213,18 @@ Two further screenshots exist in the deck and are **not** included here:
 - An outbound call screen showing a real mobile number and contact name
 
 Both are recreated inside the browser demo with placeholder data instead.
+
+## Video thumbnails — `assets/videos/thumbnails/`
+
+One frame per published clip, chosen for a readable overlay and no motion blur.
+
+| File | Frame | Why this frame |
+|---|---|---|
+| `live-object-detection.jpg` | 9.0 s | `couch 0.92` and `teddy bear 0.72` both boxed and legible |
+| `floor-hazard-detection.jpg` | 10.5 s | The red hazard box on the teddy bear, with the couch, mugs and table visibly *not* boxed |
+| `original-ios-app.jpg` | 12.0 s | "Teddy bear detected" toast, steer arrow, red box, full control rail |
+| `incident-log-demo.jpg` | 2.0 s | Both log entries readable, including the warped-rug entry |
+| `original-final-pitch.jpg` | 34.0 s | The thesis slide; no private data in frame (see above) |
 
 ## Recording a demo GIF
 

@@ -16,9 +16,9 @@
     "node": ">=18"
   },
   "scripts": {
-    "start": "python3 -m http.server 5173",
+    "start": "node scripts/serve.mjs",
     "test": "node --test test/*.test.js",
-    "check": "node --check src/app.js && node --check src/pathwayEngine.js && npm test"
+    "check": "node --check src/app.js && node --check src/pathwayEngine.js && node --check scripts/serve.mjs && npm test"
   },
   "dependencies": {},
   "devDependencies": {}

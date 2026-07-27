@@ -28,5 +28,13 @@ Pathway.pptx
 # committing both would triple the repository size. See assets/README.md.
 media-images/
 
+# Original camera-roll video from the event, 692 MB. Compressed, trimmed H.264 versions
+# of the short technical clips are committed in assets/videos/ instead.
+#
+# FinalPitchDemo.MOV in particular must NOT be committed or published as-is: it is 553 MB
+# and it shows a real mobile number, a named third party and a named care home on the
+# projected slides. See the "Full pitch" section of assets/README.md.
+media-videos/
+
 # Claude Code local settings
 .claude/settings.local.json
