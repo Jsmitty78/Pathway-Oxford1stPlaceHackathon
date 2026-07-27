@@ -183,8 +183,8 @@ Four things the judges could check on the day, all of which are documented here:
 
 ## Oxford field validation
 
-The team did not rely on online research alone. They left the venue and spoke to members of
-the public around Oxford.
+Within the same 36 hours, the team did not rely on online research alone. They left the venue
+and interviewed members of the public on the streets of Oxford.
 
 | | |
 |---|---|
@@ -482,7 +482,7 @@ responsible for their care.
 
 ## Licence
 
-[MIT](LICENSE) © 2026 Caleb Byrne.
+[MIT](LICENSE) 
 
 The pitch-deck stills and event photographs in `assets/` are the team's own material,
 included to document the original prototype and the build. Two deck screenshots were
