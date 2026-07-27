@@ -68,8 +68,9 @@ Designed in the pitch deck, never built.
 - [ ] **Accessibility testing with actual older adults**, not proxies. Text size, contrast,
       target size, audio clarity, and whether the HELP screen is comprehensible under
       stress.
-- [ ] **Care-home pilot.** The deck had a scheduled demo with St John's and two more homes
-      interested — that is the natural starting point.
+- [ ] **Care-home pilot.** Two of the four care homes contacted during the hackathon
+      expressed interest in a follow-up test or a scheduled demonstration — that is the
+      natural starting point. Neither is named here; neither agreed to a trial.
 - [ ] **Clinical framing.** Establish what regulatory class this falls into before it is
       described as a fall-detection device to anyone.
 - [ ] Physiotherapist review of the guidance behaviour. "Move left 0.55 m" may be exactly

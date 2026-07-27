@@ -181,6 +181,85 @@ Four things the judges could check on the day, all of which are documented here:
 
 ---
 
+## Original hackathon footage
+
+These recordings were captured during the original Oxford Venture 2026 Hackathon build. They
+show the surviving computer-vision detector, the iPhone interface, floor-hazard filtering and
+the incident log that existed before the reconstructed browser demo in this repository.
+
+**The original iOS source did not survive the hackathon, but video evidence of it did.**
+
+> [!NOTE]
+> Everything in this section is **original hackathon footage**, not a recording of the
+> reconstructed demo. Clips open in the browser — H.264, no audio, 0.6–11 MB each.
+
+<table>
+<tr>
+<td width="50%">
+<a href="assets/videos/original-live-object-detection.mp4">
+<img src="assets/videos/thumbnails/live-object-detection.jpg" alt="Watch the original live object-detection test: green boxes labelled couch 0.92 and teddy bear 0.72 over the test lounge">
+</a>
+<br>
+<sub><b>1 · Live object detection.</b> The surviving detector recognises objects in the camera feed and renders bounding boxes over the test environment. Nothing is judged yet — the couch and the soft toy are equally just objects.</sub>
+</td>
+<td width="50%">
+<a href="assets/videos/original-floor-hazard-detection.mp4">
+<img src="assets/videos/thumbnails/floor-hazard-detection.jpg" alt="Watch the original floor-hazard filtering test: only the teddy bear on the floor carries a red hazard box, while the couch, mugs and table carry none">
+</a>
+<br>
+<sub><b>2 · Floor-hazard filtering.</b> The teddy bear is first recognised as an object and then promoted to a likely floor hazard. The couch, the mugs and the table are filtered out entirely — the rule <code>classifyDetection()</code> ports.</sub>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<a href="assets/videos/original-pathway-ios-app.mp4">
+<img src="assets/videos/thumbnails/original-ios-app.jpg" alt="Watch the original Pathway iPhone app: title pill, large circular control rail, Teddy bear detected toast and a red box on the floor object">
+</a>
+<br>
+<sub><b>3 · The original Pathway iPhone app.</b> The interface shows the camera view, the rail of large accessibility-focused controls, a steer arrow and hazard toasts — "Rug detected", then "Teddy bear detected".</sub>
+</td>
+<td width="50%">
+<a href="assets/videos/original-incident-log.mp4">
+<img src="assets/videos/thumbnails/incident-log-demo.jpg" alt="Watch the original incident log: entries reading warped rug detected and teddy bear detected on floor, each with a captured still, dated 21st February 2026">
+</a>
+<br>
+<sub><b>4 · The original incident log.</b> The app records detected hazards — a curled rug edge at <code>t = 1s</code> and a floor obstacle at <code>t = 10s</code> — each with a captured still and a timestamp.</sub>
+</td>
+</tr>
+</table>
+
+<sub>The app clip is a simulator recording driven from a recorded walkthrough, which is why it
+opens on a "demo video" card; the interface, overlays and log are the real app. Full
+per-clip provenance in <a href="assets/README.md">assets/README.md</a>.</sub>
+
+### The full final pitch
+
+<a href="assets/videos/thumbnails/original-final-pitch.jpg">
+<img src="assets/videos/thumbnails/original-final-pitch.jpg" alt="The Pathway team presenting the thesis slide, We mount standardised NHS walking frames to make them smart, to the judges at the Oxford Venture 2026 Hackathon" width="820">
+</a>
+
+**Watch the original first-place final pitch** — *presented at the Oxford Venture 2026
+Hackathon.* The complete pitch delivered to the judges, including the live demonstration.
+
+<!--
+  PITCH VIDEO LINK — intentionally not published yet.
+
+  FinalPitchDemo.MOV (553 MB, 7m56s) is git-ignored and is NOT hosted anywhere, because the
+  projected slides show a real mobile number and contact name (~238-262s), a named third
+  party with their photograph (~100-135s), and a named care home (~320-460s).
+
+  Once a redacted copy exists and has been uploaded, replace the <img> above with:
+      <a href="THE_URL"><img src="assets/videos/thumbnails/original-final-pitch.jpg" alt="..." width="820"></a>
+  See the "Full pitch" section of assets/README.md for the exact timecodes to redact.
+-->
+
+> [!IMPORTANT]
+> The full pitch recording is **not published yet.** The projected slides show a real phone
+> number, a named individual and a named care home, so it is withheld until those are
+> redacted. The still above is from a frame containing none of them.
+
+---
+
 ## Oxford field validation
 
 Within the same 36 hours, the team did not rely on online research alone. They left the venue
@@ -239,16 +318,21 @@ git clone <this-repo> && cd Pathway
 npm start          # serves on http://localhost:5173
 ```
 
-Then open <http://localhost:5173>. Any static server works — `npx serve`, `php -S`, a Live
-Server extension. It does need to be served rather than opened from disk: the demo is plain
-ES modules, and browsers block module imports over `file://`.
+Then open <http://localhost:5173>. It does need to be served rather than opened from disk:
+the demo is plain ES modules, and browsers block module imports over `file://`.
+
+`npm start` runs [`scripts/serve.mjs`](scripts/serve.mjs) — about 80 lines of Node standard
+library, no dependencies. Any static server works for the demo itself, but one that supports
+**HTTP range requests** is needed for the [hackathon footage](#original-hackathon-footage) to
+play; `npx serve` does, and `python3 -m http.server` does not.
 
 ```bash
 npm test           # 27 behavioural tests over the engine
 npm run check      # syntax check + tests
 ```
 
-Requires Node 18+ for the tests. The demo itself needs only a browser.
+Requires Node 18+ for the tests and the dev server. Nothing is installed — there are no
+dependencies to install.
 
 ![Pathway demo — D.A.I. indoor navigation stage](assets/demo-screenshot.jpg)
 
@@ -393,9 +477,13 @@ This repository is rebuilt from the pitch deck and the surviving code. The split
 
 | | |
 |---|---|
-| ✅ **Original** | [`vision/hazard_detector.py`](vision/) — the live YOLO detector, 261 lines, three compatibility fixes marked inline. The deck, the demo footage, the architecture slide, the physical prototype and its printed mount, the live phone-call demonstration, the field interviews, and the photographs in [`assets/hackathon/`](assets/hackathon). |
+| ✅ **Original** | [`vision/hazard_detector.py`](vision/) — the live YOLO detector, 261 lines, three compatibility fixes marked inline. The deck, the architecture slide, the physical prototype and its printed mount, the live phone-call demonstration, the field interviews, the photographs in [`assets/hackathon/`](assets/hackathon), and the **footage in [`assets/videos/`](assets/videos)** — the detector, the hazard filter, the iOS app and its incident log, all recorded during the event. |
 | 🔧 **Rebuilt** | The browser interface, the JavaScript scoring engine, the camera projection model, the synthetic motion scenarios, the triage model, the mock caregiver dashboard, the automated tests, and these docs. |
-| ❌ **Still missing** | The iOS app (SwiftUI + RoomPlan + CoreMotion), the original sensor recordings, the real production SMS/voice integration, the Core ML deployment code, and clinically validated fall thresholds. Every motion value in `data/sampleEvents.js` is synthesised because none survived. |
+| ❌ **Still missing** | The iOS app **source** (SwiftUI + RoomPlan + CoreMotion), the original sensor recordings, the real production SMS/voice integration, the Core ML deployment code, and clinically validated fall thresholds. Every motion value in `data/sampleEvents.js` is synthesised because none survived. |
+
+The videos are **evidence that the original implementation ran** — they are not a recovery of
+it. The iOS source is still gone, and nothing in `assets/videos/` can be compiled, tested or
+extended.
 
 Every weight and threshold in the engine is an engineering judgement call, not a
 measurement. Nothing here has been validated against a real fall.
@@ -427,6 +515,7 @@ src/
   pathwayEngine.js          decision core — pure, dependency-free, tested
   app.js                    demo controller and canvas renderer
   styles.css
+scripts/serve.mjs           dev server — stdlib only, supports range requests
 data/sampleEvents.js        three world-space scenarios
 test/hazardEngine.test.js   27 tests
 vision/
@@ -435,6 +524,7 @@ vision/
 docs/                       story, architecture, decisions, reconstruction, roadmap, a11y
 assets/                     stills recovered from the pitch deck
   hackathon/                photographs from the event
+  videos/                   ORIGINAL hackathon footage + thumbnails
 ```
 
 ## Deploying the demo

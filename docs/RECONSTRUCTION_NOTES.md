@@ -18,6 +18,7 @@ The short version: **the hazard detector is original, the decision layer around 
 | `Pathway.pptx` | Original 35-slide deck, including four demo videos and the architecture diagram. |
 | Demo footage | Original. Frames extracted into `assets/`. |
 | Event photographs | Original. Eight, taken by the team during the hackathon; web-ready versions in `assets/hackathon/`. |
+| Screen and camera video | Original. The detector, the hazard filter, the iOS app and its incident log, recorded during the event; compressed clips in `assets/videos/`. |
 | `LICENSE` | Original MIT licence, © 2026 Caleb Byrne. |
 | Old `README.md` | Two sentences describing the YOLO detector. |
 
@@ -86,8 +87,16 @@ that, or whether the rug simply was not detected, is unknown.
 Nothing in this repository can substitute for these:
 
 - **The iOS app.** SwiftUI views (the app UI, the HELP screen), RoomPlan integration for
-  the environment map, and CoreMotion handling. The screenshots in `assets/` are the only
-  record of it.
+  the environment map, and CoreMotion handling. The screenshots in `assets/` and the clips in
+  `assets/videos/` are the only record of it.
+
+  **The video does not recover the source.** `original-pathway-ios-app.mp4` and
+  `original-incident-log.mp4` show the app running — the control rail, the hazard toasts, the
+  red box on a floor object, the incident log with its two entries and timestamps. That
+  establishes which behaviours existed and roughly how they were presented, and it is why
+  this reconstruction models a toast, a steer arrow and a persistent event log. It supplies
+  no SwiftUI, no RoomPlan calls, no CoreMotion handling and no Core ML pipeline. Treat the
+  footage as a specification of observable behaviour, not as an implementation.
 - **The real alert integration.** The deck's screenshots show a genuine SMS with a location
   pin and a genuine outbound call. Whether that was automated or triggered by hand during
   the demo is not documented. The browser demo simulates both.
