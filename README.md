@@ -9,7 +9,7 @@ into a fall-prevention and caregiver-alert system.**
 
 Selected from a field of 115 participants · built in 36 hours by a team that met at the event
 
-[![CI](https://github.com/Jsmitty78/Pathway/actions/workflows/ci.yml/badge.svg)](https://github.com/Jsmitty78/Pathway/actions/workflows/ci.yml)
+[![CI](https://github.com/Jsmitty78/Pathway-Oxford1stPlaceHackathon/actions/workflows/ci.yml/badge.svg)](https://github.com/Jsmitty78/Pathway-Oxford1stPlaceHackathon/actions/workflows/ci.yml)
 [![Tests](https://img.shields.io/badge/tests-27%20passing-brightgreen)](test/hazardEngine.test.js)
 [![Licence](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
 [![Demo](https://img.shields.io/badge/demo-no%20build%20step-8b5cf6)](#run-the-demo)
@@ -191,7 +191,7 @@ the incident log that existed before the reconstructed browser demo in this repo
 
 > [!NOTE]
 > Everything in this section is **original hackathon footage**, not a recording of the
-> reconstructed demo. Clips open in the browser — H.264, no audio, 0.6–11 MB each.
+> reconstructed demo. Clips open in the browser — H.264, no audio, 0.4–6.7 MB each — sized to stay inside GitHub's file-preview limit.
 
 <table>
 <tr>
