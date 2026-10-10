@@ -553,10 +553,12 @@ team on site, and built Pathway together over the following 36 hours.
 
 | | |
 |---|---|
-| **Jake Smith** | Concept & user research lead |
+| **Jake Smith** | Concept & user research lead; hands-on prototype engineering, integration, testing, and demo troubleshooting |
 | **Caleb Byrne** | Software architect |
 | **Antony He** | CAD & market research |
 | **Aiyush Gupta** | Product & strategy |
+
+**Jake's contribution:** concept development, user research, and hands-on prototype engineering. I helped integrate the smartphone with the physical walker prototype, test the hazard-detection and fall-alert workflow, and troubleshoot issues ahead of the live demonstration. I also led customer discovery and contributed to the final pitch.
 
 The work spanned user research and street interviews, software architecture, computer
 vision, CAD and 3D printing, physical prototyping, market validation, and the final
