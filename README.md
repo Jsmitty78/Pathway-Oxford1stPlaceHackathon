@@ -2,6 +2,8 @@
 
 # Pathway
 
+> **New iPhone prototype:** [SwiftUI source and setup](ios/README.md). Added in November 2026; this is new implementation work, not recovered original source. Includes optional LiDAR scanning for devices such as iPhone 15 Pro. Model installation and device verification remain required.
+
 **Turning a walking frame the user already owns, and a smartphone already in a drawer,
 into a fall-prevention and caregiver-alert system.**
 
