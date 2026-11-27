@@ -372,7 +372,8 @@ not a quantified result.
 No dependencies, no build step.
 
 ```bash
-git clone <this-repo> && cd Pathway
+git clone https://github.com/Jsmitty78/Pathway-Oxford1stPlaceHackathon.git
+cd Pathway-Oxford1stPlaceHackathon
 npm start          # serves on http://localhost:5173
 ```
 
@@ -389,7 +390,7 @@ npm test           # 27 behavioural tests over the engine
 npm run check      # syntax check + tests
 ```
 
-Requires Node 18+ for the tests and the dev server. Nothing is installed — there are no
+Requires Node 22+ for the tests and the dev server. Nothing is installed — there are no
 dependencies to install.
 
 ![Pathway demo — D.A.I. indoor navigation stage](assets/demo-screenshot.jpg)
