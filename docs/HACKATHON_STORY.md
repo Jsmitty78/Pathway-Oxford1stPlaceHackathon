@@ -270,6 +270,6 @@ falling.*
 
 ## Early product sketch
 
-<img src="../assets/hackathon/early-product-sketch.jpg" alt="Early Pathway ideas for the interface, detection, feedback and demonstrations" width="620">
+<img src="../assets/hackathon/early-product-sketch.jpg?v=2" alt="Early Pathway ideas for the interface, detection, feedback and demonstrations" width="620">
 
 *The early sketch includes proposals, not just completed features.*
