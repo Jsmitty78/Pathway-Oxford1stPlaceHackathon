@@ -268,13 +268,8 @@ app running; it does not bring the code back.
 has not been clinically validated, and it must not be relied on by anyone at risk of
 falling.*
 
-## Early product sketch and updated record
+## Early product sketch
 
 <img src="../assets/hackathon/early-product-sketch.jpg" alt="Early Pathway ideas for the interface, detection, feedback and demonstrations" width="620">
 
 *The early sketch includes proposals, not just completed features.*
-
-Jake's November 2026 recollection places the lacrosse-stick visit at about 2 a.m. and the
-printer walk at about 3 a.m. This corrects the earlier printer-collection timeline.
-The [new SwiftUI implementation](https://github.com/Jsmitty78/Pathway-Oxford1stPlaceHackathon/pull/1)
-is a separate draft and does not replace the missing original source.

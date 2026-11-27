@@ -260,6 +260,6 @@ want one for a README or a slide:
 | `hackathon/oxford-college-friends.jpg` | `IMG_2507.HEIC` | Friends in formal dress during the wider Oxford visit. |
 | `hackathon/oxford-college-dinner.jpg` | `IMG_2498.HEIC` | A college dinner during the Oxford visit. |
 
-These are user-supplied photographs, not generated images. Converted from HEIC to JPEG with macOS ImageIO via `sips`, at a maximum edge of 1600 pixels. No crop, retouching or scene alterations. EXIF/XMP/IPTC/comment metadata was removed from the JPEG exports; original HEIC files were not modified. The college captions do not assert that the pictures show the exact ball or the same night as the award.
+These are user-supplied photographs, not generated images. Converted from HEIC to JPEG with macOS ImageIO via `sips`, at a maximum edge of 1600 pixels. No crop, retouching or scene alterations. EXIF/XMP/IPTC/comment metadata was removed from the JPEG exports; original HEIC files were not modified. The early product sketch has a display-orientation tag so the handwriting reads upright; its compressed image data is unchanged. The college captions do not assert that the pictures show the exact ball or the same night as the award.
 
 `IMG_2396.HEIC` shows the planning whiteboard already represented by the existing redacted `whiteboard-planning-session.jpg`. Its unredacted version was not republished. `IMG_2390.HEIC`, a wider workroom view, also shows that whiteboard and a foreground laptop screen; the existing working-session image was used instead. Neither raw image was committed.
