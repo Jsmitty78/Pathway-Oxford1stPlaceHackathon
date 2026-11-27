@@ -6,7 +6,7 @@
 | Swift core compilation | Passed with Apple Swift 6.1.2 |
 | Swift app syntax parsing | Passed; parsing does not resolve Apple framework APIs |
 | Xcode project and Info.plist syntax | Passed `plutil -lint` |
-| Core behavior tests | Local portable run pending; XCTest unavailable in installed Command Line Tools |
+| Core behavior tests | Passed: 7 test methods using portable runner; full XCTest CI rerun pending |
 | iOS simulator compilation | Pending GitHub/Xcode check |
 | iPhone 15 Pro | Not run |
 | Detector model conversion/inference | Not run; weights not included |

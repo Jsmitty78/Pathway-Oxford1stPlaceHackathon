@@ -63,6 +63,8 @@ public struct MotionWindow {
         let minG = samples.map(\.accelerationG).min() ?? 1
         let maxG = samples.map(\.accelerationG).max() ?? 1
         let speed = samples.map(\.angularSpeed).max() ?? 0
+        // Stillness alone is not evidence of an event; require a dynamic signal first.
+        guard minG < 0.75 || maxG > 1.3 || speed * 180 / .pi > 90 else { return 0 }
         var angularAcceleration = 0.0
         for (a, b) in zip(samples, samples.dropFirst()) {
             let dt = b.time - a.time

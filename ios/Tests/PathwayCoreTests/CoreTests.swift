@@ -1,4 +1,5 @@
-#if canImport(XCTest)
+import Foundation
+#if canImport(XCTest) && !PORTABLE_TEST_RUNNER
 import XCTest
 @testable import PathwayCore
 #endif

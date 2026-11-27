@@ -1,9 +1,9 @@
 // Run the same core test methods when Command Line Tools do not include XCTest.
 import Foundation
 class XCTestCase {}
-func XCTAssertTrue(_ value: @autoclosure () throws -> Bool) rethrows { if try !value() { fatalError("Expected true") } }
-func XCTAssertFalse(_ value: @autoclosure () throws -> Bool) rethrows { if try value() { fatalError("Expected false") } }
-func XCTAssertEqual<T: Equatable>(_ a: @autoclosure () throws -> T, _ b: @autoclosure () throws -> T) rethrows { if try a() != b() { fatalError("Values differ") } }
+func XCTAssertTrue(_ value: @autoclosure () throws -> Bool) { do { if try !value() { fatalError("Expected true") } } catch { fatalError("Unexpected error: \(error)") } }
+func XCTAssertFalse(_ value: @autoclosure () throws -> Bool) { do { if try value() { fatalError("Expected false") } } catch { fatalError("Unexpected error: \(error)") } }
+func XCTAssertEqual<T: Equatable>(_ a: @autoclosure () throws -> T, _ b: @autoclosure () throws -> T) { do { let actual = try a(); let expected = try b(); if actual != expected { fatalError("Values differ: \(actual) versus \(expected)") } } catch { fatalError("Unexpected error: \(error)") } }
 func XCTAssertLessThanOrEqual<T: Comparable>(_ a: T, _ b: T) { if a > b { fatalError("Above upper bound") } }
 func XCTAssertGreaterThanOrEqual<T: Comparable>(_ a: T, _ b: T) { if a < b { fatalError("Below lower bound") } }
 func XCTAssertThrowsError<T>(_ expression: @autoclosure () throws -> T) { do { _ = try expression() } catch { return }; fatalError("Expected error") }
