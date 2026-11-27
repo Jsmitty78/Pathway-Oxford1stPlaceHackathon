@@ -6,8 +6,8 @@
 | Swift core compilation | Passed with Apple Swift 6.1.2 |
 | Swift app syntax parsing | Passed; parsing does not resolve Apple framework APIs |
 | Xcode project and Info.plist syntax | Passed `plutil -lint` |
-| Core behavior tests | Passed: 7 test methods using portable runner; full XCTest CI rerun pending |
-| iOS simulator compilation | Pending GitHub/Xcode check |
+| Core behavior tests | Passed: 7 test methods locally and under XCTest on GitHub macOS runner (run 45927836686) |
+| iOS simulator compilation | CI found an NSCoding class-name issue in RoomPlan coordinator; fix submitted for rerun |
 | iPhone 15 Pro | Not run |
 | Detector model conversion/inference | Not run; weights not included |
 | RoomPlan and contact integrations | Source implemented; physical-device checks pending |

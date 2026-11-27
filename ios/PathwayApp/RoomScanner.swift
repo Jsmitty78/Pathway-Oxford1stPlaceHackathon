@@ -20,6 +20,7 @@ struct RoomScanner: UIViewRepresentable {
     static func dismantleUIView(_ view: RoomCaptureView, coordinator: Coordinator) {
         if !coordinator.stopped { view.captureSession.stop() }
     }
+    @objc(PathwayRoomCaptureCoordinator)
     final class Coordinator: NSObject, RoomCaptureViewDelegate {
         var stopped = false
         let onResult: (Result<URL, Error>) -> Void
