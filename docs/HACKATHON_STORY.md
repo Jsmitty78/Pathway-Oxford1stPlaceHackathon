@@ -1,9 +1,10 @@
 # The 36-hour build: Pathway in Oxford
 
-How Pathway went from four strangers in a room to **1st place in a field of 115 participants**
-at the Oxford Venture 2026 Hackathon.
+We met at the Oxford Venture 2026 Hackathon, built Pathway together in 36 hours, and won
+**1st place in a field of 115 participants**. This is how those hours went for us.
 
-This is the human record of the build. The engineering record lives in
+I wanted to keep the story and the photos together, including the parts that never made it
+into the pitch. For the software and engineering details, see
 [ARCHITECTURE.md](./ARCHITECTURE.md), [TECHNICAL_DECISIONS.md](./TECHNICAL_DECISIONS.md)
 and [RECONSTRUCTION_NOTES.md](./RECONSTRUCTION_NOTES.md).
 
@@ -12,26 +13,28 @@ and [RECONSTRUCTION_NOTES.md](./RECONSTRUCTION_NOTES.md).
 ## My Oxford experience through J-StarX
 
 I came to Oxford through the **J-StarX entrepreneurship program for Japanese college students**.
-I expected to learn about entrepreneurship; I did not expect to find myself carrying a borrowed
-3D printer through Oxford at about three in the morning with a team I had just met.
+One of my favourite memories from the program is walking through Oxford at about three in
+the morning, carrying a borrowed 3D printer with a team I had only just met. None of us had
+slept, and we still had phone clips to design and a prototype to get working.
 
-This is the full account of how we built Pathway, with the original engineering context and
-photographs alongside my recollections of the people and the experience. Working with the
-team was inspiring, and the friends I made became an important part of my time in Oxford.
+Working with this team was great. We had different skills, plenty to figure out, and very
+little time, but everyone kept helping each other move forward. I also made so many good
+friends during my time in Oxford. The people who lent us equipment and helped us along the
+way are a big part of why I remember the experience so fondly.
 
 — **Jake Smith**
 
 ## The team formed at the event
 
-Jake Smith, Caleb Byrne, Antony He and Aiyush Gupta had not met before the hackathon. There
-was no pre-existing team, no shared repository, no idea agreed in advance. They met on site,
-formed a team there, and spent the first hours doing the thing that decided everything
-afterwards: choosing a problem worth 36 hours.
+I met Caleb Byrne, Antony He and Aiyush Gupta at the hackathon. We had not worked together
+before, and we arrived without a shared repository or an idea already agreed. Once we
+formed the team, we spent the first few hours talking through problems we could work on.
+We needed to choose something we cared about and could actually demonstrate within 36 hours.
 
-What each of them brought turned out to be complementary rather than overlapping — user
-research, software architecture and computer vision, CAD and market analysis, product
-framing and the pitch. That is why the project ended up spanning software, hardware and
-field research instead of being four people editing the same file.
+Between us, we could cover user research, software architecture and computer vision, CAD
+and market analysis, and the product and pitch. That mix helped us get a lot done at once.
+While some of us worked on the software or physical prototype, we could also speak to
+people and work out how to explain the idea. We had to keep bringing those pieces together.
 
 <table>
 <tr>
@@ -46,27 +49,30 @@ field research instead of being four people editing the same file.
 
 ## Choosing the problem
 
-The figures and competitor comparisons below describe the team’s original pitch context;
-they are not a current market or clinical assessment.
+These are the figures and competitor comparisons we used when preparing our pitch at the
+hackathon. I have kept them here to explain our thinking at the time; they are not an
+updated market review or a clinical assessment.
 
-Falls in older adults were on the whiteboard within the first session, and the numbers held
-up: 220,000 UK A&E admissions from falls in 2024 (NICE), falls as the leading cause of
+We started discussing falls in older adults during our first whiteboard session. The
+figures we included in the pitch were: 220,000 UK A&E admissions from falls in 2024 (NICE), falls as the leading cause of
 injury-related death in the over-65s (US CDC), roughly £2.3 billion a year to the NHS (NHS
 England).
 
-The gap the team went after was not detection technology. It was cost. The NHS gives walking
-frames away. The one competing smart walker starts at $2,499 plus a monthly subscription
-and, six years after founding, still is not shipping. Meanwhile most households have a
-retired smartphone in a drawer that already contains a camera, an accelerometer, a
-gyroscope, connectivity and a processor.
+Cost was a big part of our discussion. The NHS supplies walking frames free of charge,
+while the smart walker we compared in our pitch started at $2,499 plus a monthly
+subscription and had not shipped six years after the company was founded. We kept coming
+back to the old phones people have sitting in drawers. Those phones already have a camera,
+an accelerometer, a gyroscope, connectivity and a processor. Could we use that hardware
+to add useful features to a frame someone already owned?
 
-Pathway is the join between those two facts: **retrofit the frame the user already has with
+That became the idea behind Pathway: **retrofit the frame the user already has with
 the phone that is already in the drawer.**
 
 ## Leaving the building
 
-The team did not want to build on desk research alone, so they went out into Oxford and
-spoke to people.
+We needed to hear from people before getting too far into the build. We went out into
+Oxford, spoke to members of the public and asked about falls and their experiences with
+older relatives and walking frames.
 
 **32 interviews with members of the public.** **68%** knew an older adult who had fallen in
 the previous year. Three findings changed the build:
@@ -77,10 +83,11 @@ the previous year. Three findings changed the build:
 | Caregivers want to be **in the loop**, not informed afterwards | Every event ends in a triage decision that can escalate to a person, not a silent log entry |
 | Technology is often **hard for older users** | One status pill, one rail of large buttons, and a full-screen confirmation with an equally prominent way out |
 
-In parallel the team contacted **four care homes**; **two expressed interest in a follow-up
+Alongside those conversations, we contacted **four care homes**; **two expressed interest in a follow-up
 test or a scheduled demonstration**. **Two elderly-care experts** also expressed interest.
-None of this was a formal partnership or a committed trial, and it is not described as one
-anywhere in this repository.
+Those conversations were encouraging, but they were expressions of interest. We had not
+agreed a formal partnership or committed anyone to a trial, and I want to keep that clear
+when describing what we achieved during the event.
 
 <table>
 <tr>
@@ -88,16 +95,16 @@ anywhere in this repository.
 <td width="50%"><img src="../assets/hackathon/outdoor-walker-test.jpg" alt="A team member pushing the improvised walker frame with the phone mounted, on a wet Oxford pavement"></td>
 </tr>
 <tr>
-<td><sub><b>Talking to people, not just to search results.</b> 32 interviews around Oxford. The interviewee's face is obscured for privacy.</sub></td>
+<td><sub><b>Our conversations around Oxford.</b> 32 interviews around Oxford. The interviewee's face is obscured for privacy.</sub></td>
 <td><sub><b>Testing outdoors.</b> The improvised frame, phone mounted, walked over real paving.</sub></td>
 </tr>
 </table>
 
 ## About 2 a.m.: still no walking frame
 
-There was a fairly fundamental problem with our walking-frame prototype: **we did not have a walking frame**.
+By this point, we still had a very practical problem: **we did not have a walking frame**.
 
-We called people we knew and contacted care homes, trying to find one we could borrow. Despite all the outreach, we could not get one in time.
+We called everyone we could think of and contacted care homes, asking whether anyone had a walking frame we could borrow. We kept trying, but we could not get one in time for the demonstration. We still needed something to mount the phone on and test.
 
 At about **2 a.m.**, we went to a friend-of-a-friend's apartment. He had some old lacrosse sticks and agreed to lend them to us. Those sticks became the basis of our improvised frame, held together with tape and the parts we could make overnight.
 
@@ -107,7 +114,7 @@ It was a demonstration rig, not a mobility aid for someone to rely on. But it ga
 
 Another friend had a 3D printer we could borrow. By about **3 a.m.**, we were walking through Oxford with it, still without sleep.
 
-That walk captured something I loved about the experience. People we had only recently met were willing to help us make an idea happen. A conversation led to a borrowed piece of equipment; that equipment made the next part of the build possible. I was discovering Oxford through its people as much as through its buildings and colleges.
+I still think about how willing people were to help us. A friend of a friend had lent us the lacrosse sticks, and now another friend was lending us a whole 3D printer in the middle of the night. I was amazed by that part of Oxford culture. Getting to know people, asking around and seeing everyone help each other was one of the best parts of being there.
 
 Back with the team, we spent the rest of the night designing the phone clips and mount, printing parts, fitting them to the frame and working through the software and hardware together. My contribution included physical prototype integration, testing and troubleshooting ahead of the demonstration, alongside research and the pitch.
 
@@ -115,9 +122,10 @@ Back with the team, we spent the rest of the night designing the phone clips and
 
 ## Overnight testing
 
-The rest of the night went into the loop that mattered: mount the phone, walk the frame at
-hazards, watch what the detector admitted and what it filtered out, tip the frame over,
-watch whether the fall logic fired, adjust, repeat.
+For the rest of the night, we kept mounting the phone, moving the frame towards hazards
+and checking what the detector picked up or filtered out. We also tipped the frame over
+to check whether the fall logic fired. Then we adjusted things and tried again. It meant
+working through the physical setup and the software together, with very little time left.
 
 <table>
 <tr>
@@ -132,21 +140,24 @@ watch whether the fall logic fired, adjust, repeat.
 
 ## What the footage caught
 
-Four recordings from those hours survived, and they are the closest thing left to the
-original build actually running. They are in [`assets/videos/`](../assets/videos) and are
+We still have four recordings from those hours that show the original build running. I am
+glad we kept them, especially because we no longer have the original iOS source. They are in [`assets/videos/`](../assets/videos) and are
 laid out in the [README](../README.md#original-hackathon-footage).
 
 Two are camera recordings of the detector: one pass through the test lounge with everything
 boxed and labelled, and the same pass with the hazard rule applied, where the couch and the
 mugs and the table all drop away and only the soft toy on the floor keeps a red box. Watching
-them back to back is the clearest statement of what Pathway actually did.
+them back to back makes it easier to see the difference between recognising an object
+and deciding that it might be a hazard in someone’s path.
 
 The other two are screen recordings of the iOS app — the control rail, a "Rug detected"
 toast, a "Teddy bear detected" toast, and the incident log listing a warped rug at one second
 and a floor obstacle at ten, each with a captured still and a timestamp.
 
-That log is the part worth pausing on. It is the "caregivers want to be in the loop" finding
-from the street interviews, turned into a screen, inside 36 hours.
+The incident log connected directly to what people had told us in the street interviews.
+Caregivers wanted to know what had happened, so the app kept a still and a timestamp
+alongside each detected hazard. It was one way we brought those conversations into the
+interface during the 36 hours.
 
 The full pitch was also filmed, and is **not published** — the projected slides carry a real
 phone number, a named individual and a named care home. See
@@ -160,24 +171,27 @@ These were informal prototype demonstrations and engineering checks. They helped
 
 <img src="../assets/hackathon/outdoor-walker-test.jpg" alt="Testing the improvised frame and mounted phone outdoors in Oxford" width="620">
 
-*Outdoor prototype testing near Saïd Business School, as recalled from the event.*
+*Testing our prototype outside near Saïd Business School, close to Oxford railway station.*
 
 ## The live demonstration
 
-The final presentation ended with the demonstration the team had spent the night earning.
+At the end of the final presentation, it was time to show the judges what we had been
+working on all night. We had tested the setup, and now we needed to demonstrate it in
+front of the room.
 
-They **tipped the prototype over in front of the judges** to simulate a fall. The demonstration included
-an escalation workflow and a **real phone call to the team's phone, live in the room.**
+We **tipped the prototype over in front of the judges** to simulate a fall. The demonstration included
+an escalation workflow and a **real phone call to our team’s phone, live in the room.**
 
-The phone call made the intended sensor-event → detection → triage → contact experience
-tangible in the room. The surviving records do not establish whether every step was
-automated, so this account does not make that claim.
+The phone ringing let us show the full idea: sensor-event → detection → triage → contact.
+Someone in the room could see the simulated fall and hear the call arrive. The records
+we still have do not show whether every contact step was automated, so I cannot confirm
+that the whole sequence ran automatically.
 
-Two honest caveats, which the team also made in the room:
+There are two limits to keep in mind when looking back at that demonstration:
 
 - It was a **hackathon prototype**, not a clinically validated safety system. The fall
   thresholds were engineering judgement, never fitted to recorded falls.
-- The escalation ran on the team's own phone and contacts. **This repository's browser demo
+- The escalation used our own team phone and contacts. **This repository's browser demo
   simulates that flow — it is not wired to any live SMS or voice service**, and no real
   number or address appears anywhere in it.
 
@@ -204,7 +218,7 @@ the prize was £1,500 alongside sponsor credits.
 
 After the pitching and the win, we celebrated at a **Keble College ball**, followed by time at the college bar. It was a memorable end to an intense stretch of work, and another chance to experience Oxford's college culture with new friends.
 
-The friendships were a major part of my J-StarX experience. I left with people I wanted to stay in touch with, an appreciation for the community around us, and a clearer sense of how much I enjoy building with a committed team.
+I made so many great Oxford friends during J-StarX, and I really enjoyed getting to know the college culture. Working with Caleb, Antony and Aiyush was inspiring, and so was seeing how people around us helped when we needed something. Winning was exciting, but I also want to remember the people, the late-night work and the time we spent together afterwards.
 
 <table>
 <tr>
@@ -217,33 +231,40 @@ The friendships were a major part of my J-StarX experience. I left with people I
 </tr>
 </table>
 
-*These personal photographs document the wider Oxford experience. They are not technical evidence for the prototype or a record of the exact overnight timeline.*
+*A few photos from my wider stay in Oxford. These are memories of the people and college life during the visit, rather than photos of the overnight build itself.*
 
 ## What we learned
 
-**Field research beats desk research, and it is faster than it looks.** Walking into Oxford
-and asking 32 people a question took an afternoon and reversed a product decision — indoors,
-not outdoors. No amount of reading would have produced that with the same confidence.
+**Speaking to people changed what we built.** We spent an afternoon talking to 32 people
+around Oxford. Hearing how much time walker users spent indoors made us change our focus
+from outdoor use to indoor hazards. Those conversations gave us a much clearer reason
+for prioritising the rug edges, thresholds and objects people encounter at home.
 
-**Constraint is a design tool.** No walking frame available meant improvising one, and the
-£0.24 hardware figure the deck leads on came from having no budget in the first place. The
-cheapness became the pitch rather than an apology inside it.
+**We had to work with what we could borrow or make.** When we could not get a walking
+frame, we used lacrosse sticks. Having almost no budget also pushed us towards reusing
+hardware, which became central to the pitch. The deck’s £0.24 marginal hardware figure
+came out of that approach, although it was a prototype estimate rather than a full product cost.
 
-**Demonstrate the loop, not the screen.** The judges did not need to see a detection
-overlay; they needed to see a phone ring. Building toward one end-to-end moment shaped what
-was worth finishing and what was worth cutting.
+**The live demonstration gave us something concrete to work towards.** We wanted to show
+what happened after a possible fall, all the way through to a phone ringing. That helped
+us decide which parts needed to work together before the pitch. The detection overlay
+mattered, but so did showing how the information could reach another person.
 
-**Write down which numbers are measured.** Almost everything quantitative in the original
-build was judgement — thresholds, weights, severities. Recording that honestly at the time
-made this reconstruction possible; the alternative would have been a repository full of
-numbers nobody could defend. See [RECONSTRUCTION_NOTES.md](./RECONSTRUCTION_NOTES.md).
+**We needed to be clear about where the numbers came from.** The thresholds, weights and
+severity values in a build like this are easy to mistake for measured results. Most were
+engineering judgements. When putting this repository together, keeping those assumptions
+separate from measurements mattered just as much as documenting how the code worked. See [RECONSTRUCTION_NOTES.md](./RECONSTRUCTION_NOTES.md).
 
-**Sleep is a real dependency.** The approximately 3:00 a.m. printer walk was fun and it was also the
-symptom of a plan with no slack in it.
+**Next time, I would leave more time for equipment and rest.** Walking through Oxford with
+a printer at about 3 a.m. is a great memory, but we were still awake because we had so
+much left to do. Getting hold of the hardware earlier would have given us more time for
+testing and a better chance of getting some sleep.
 
 ## Original versus reconstructed
 
-The distinction matters, so it is stated in every document rather than assumed.
+I want someone looking through this project to know what we built at the event and what
+was added afterwards. Here is what remains from the hackathon, what was rebuilt for this
+repository, and what we still do not have.
 
 **Original — produced during the 36 hours:** the surviving hazard detector
 [`vision/hazard_detector.py`](../vision/hazard_detector.py), the 35-slide pitch deck and its
@@ -257,10 +278,10 @@ projection model, the hazard scoring and triage models, the synthetic motion sce
 [`data/sampleEvents.js`](../data/sampleEvents.js), the mock caregiver dashboard, the 27
 automated tests, and this documentation set.
 
-**Still missing, and not reconstructable:** the original iOS app **source** (SwiftUI,
+**Original material we still do not have:** the original iOS app **source** (SwiftUI,
 RoomPlan, CoreMotion), the recorded sensor traces, the real SMS and voice integration, the
-Core ML deployment code, and any clinically validated fall thresholds. The footage shows the
-app running; it does not bring the code back.
+Core ML deployment code, and any clinically validated fall thresholds. The footage lets us see the
+app running, but we cannot recover its source code from those recordings.
 
 ---
 

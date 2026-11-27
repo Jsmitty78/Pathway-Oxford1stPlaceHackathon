@@ -2,8 +2,8 @@
 
 # Pathway
 
-**Turning a walking frame the user already owns, and a smartphone already in a drawer,
-into a prototype for obstacle awareness and caregiver alerts.**
+**We built Pathway to explore whether an old smartphone could help someone using a
+walking frame spot obstacles and alert a caregiver after a possible fall.**
 
 ### 🏆 1st Place, Oxford Venture 2026 Hackathon
 
@@ -21,34 +21,39 @@ Selected from a field of 115 participants · built in 36 hours by a team that me
 <img src="assets/hackathon/first-place-team.jpg" alt="The four-person Pathway team holding the first-prize certificate in front of the announcement screen" width="720">
 
 <sub><b>The team after winning 1st place in a field of 115 participants.</b><br>
-Four strangers at the start of the hackathon. One first-place team 36 hours later.</sub>
+We met at the hackathon and built Pathway together over the next 36 hours.</sub>
 
 </div>
 
 > [!NOTE]
-> **This repository is a reconstructed, runnable portfolio version of the original hackathon
-> prototype.** The original iOS source did not survive the event. The surviving Python hazard
-> detector is here unchanged; the decision engine around it was rebuilt in JavaScript and is
-> covered by 27 tests. Exactly what is original and what is rebuilt is listed in
+> **This repository lets you run a rebuilt version of our hackathon prototype.** We no longer
+> have the original iOS source. The original Python hazard detector is included, with its
+> hazard rule preserved; the decision engine around it was rebuilt in JavaScript and has
+> 27 tests. I have separated the original work from the later additions in
 > [Original versus reconstructed](#original-versus-reconstructed).
 
-**New iPhone work:** [Draft SwiftUI implementation](https://github.com/Jsmitty78/Pathway-Oxford1stPlaceHackathon/pull/1) for iPhone 15 Pro. Its simulator build and seven core tests passed; model installation and device checks remain pending. This is new implementation work, not recovered original source.
+**The iPhone app I’m working on now:** [Draft SwiftUI implementation](https://github.com/Jsmitty78/Pathway-Oxford1stPlaceHackathon/pull/1) for iPhone 15 Pro. Its simulator build and seven core tests passed; model installation and device checks remain pending. It is a new implementation of the idea; the original app source is still missing.
 
 ---
 
 ## The problem
 
+These are the figures we used in our hackathon pitch to explain why we chose to work on
+falls in older adults. They reflect our research at the time of the event.
+
 - **220,000** UK A&E admissions in 2024 were caused by falls — *NICE*
 - Falls are the **leading cause of injury-related death** in over-65s: 38,000+ deaths in 2021 — *US CDC*
 - Falls cost the NHS around **£2.3 billion** a year — *NHS England*
 
-The tools that exist are either free and unintelligent, or intelligent and unaffordable. The
-NHS hands out walking frames for nothing. The one competing smart walker starts at **$2,499**
-plus a $50/month subscription, and six years after founding it still is not shipping.
+We were particularly interested in the cost difference. The NHS supplies standard walking
+frames free of charge. The smart walker we compared in the pitch started at **$2,499**
+plus a $50/month subscription and had not shipped six years after the company was founded.
+That made us ask whether we could add useful features to equipment people already had.
 
-And the risk is mostly indoors. From 32 interviews around Oxford: most walker users stay
-inside, and the biggest danger is the rug edge, the door threshold, the bag left in the
-hallway.
+Our 32 interviews around Oxford also changed where we focused. We heard that most walker
+users spend their time indoors, so we concentrated on things like a rug edge, a door
+threshold or a bag left in the hallway. Those everyday obstacles became the centre of
+the prototype we wanted to build.
 
 > *"My **biggest fear** isn't falling myself; it's my parents falling when **no one's there
 > to catch them**."*
@@ -56,11 +61,13 @@ hallway.
 
 ## The solution
 
-Clamp a **repurposed old phone** to the crossbar of a frame the user already has. That is
-the whole hardware story — the deck puts the marginal cost at **£0.24**, roughly 10⁴× cheaper
-than the alternative, and it is one fewer phone in landfill.
+Our idea was to clamp a **repurposed old phone** to the crossbar of a walking frame the
+user already owned. The pitch deck estimated the marginal hardware cost at **£0.24**,
+roughly 10⁴× cheaper than the alternative we compared. That was a prototype estimate,
+assuming the frame and phone were already available. It also gave an old phone another
+use instead of leaving it in a drawer or sending it to landfill.
 
-The phone then does four things:
+We organised the proposed phone functionality into four parts:
 
 | | |
 |---|---|
@@ -81,13 +88,14 @@ The phone then does four things:
 
 ## Built in 36 hours
 
-Jake Smith, Caleb Byrne, Antony He and Aiyush Gupta met for the first time at the Oxford
-Venture 2026 Hackathon. There was no pre-existing team and no idea agreed in advance — they
-formed the team on site, chose the problem together, and took Pathway from a blank whiteboard
-to a first-place working prototype in the following 36 hours.
+I met Caleb Byrne, Antony He and Aiyush Gupta at the Oxford Venture 2026 Hackathon. We
+had not worked together before and had not agreed on an idea in advance. We formed the
+team there, chose the problem together and started with a blank whiteboard. Over the
+next 36 hours, we built the prototype that won first place.
 
-Pathway was not built with ideal laboratory equipment. It was built overnight from whatever
-the team could reach.
+A lot of those hours went into finding equipment as well as writing software. We called
+around, borrowed what we could and worked through the night to get the phone, frame and
+printed parts working together in time for the pitch.
 
 <details open>
 <summary><b>The 36-hour timeline</b></summary>
@@ -96,11 +104,11 @@ the team could reach.
 
 | | |
 |---|---|
-| **Hour 0** | Four strangers form a team, pick older-adult falls, and start on the whiteboard |
+| **Hour 0** | We form a team, choose to work on older-adult falls, and start planning on the whiteboard |
 | **Hours 3–8** | Out into Oxford: **32 interviews** with members of the public. **68%** knew an older adult who had fallen in the past year. The finding that most walker users stay *indoors* moves indoor hazard detection from a feature to the core of the product |
 | **In parallel** | **Four care homes** contacted; **two expressed interest** in a follow-up test or a scheduled demonstration. **Two elderly-care experts** also expressed interest |
 | **Hardware problem** | We called people we knew and contacted care homes, but could not borrow a walking frame in time |
-| **The workaround** | Rather than drop the hardware demonstration, the team improvised a frame from **old lacrosse sticks and duct tape** — enough to hold the phone at a realistic height and be tipped over on purpose |
+| **The workaround** | We improvised a frame from **old lacrosse sticks and duct tape** — enough to hold the phone at a realistic height and be tipped over on purpose |
 | **~02:00** | At a friend-of-a-friend’s apartment, we borrowed the **old lacrosse sticks** that became our demonstration frame |
 | **~03:00** | Another friend lent us a **3D printer**. Without having slept, we carried it through Oxford and spent the rest of the night designing and printing the phone clips and mount |
 | **Through the night** | Design clips, print parts, mount the phone, test and troubleshoot together |
@@ -109,8 +117,9 @@ the team could reach.
 
 </details>
 
-The improvised frame is exactly that: **a hackathon rig, not production hardware.** Nothing
-about its geometry, stability or materials has been validated against a real walking frame.
+We used the improvised frame as **a hackathon demonstration rig**. Its geometry, stability
+and materials have not been validated against a real walking frame, and it was not built
+to support someone’s weight as a mobility aid.
 
 > **Read the full 36-hour build story → [docs/HACKATHON_STORY.md](docs/HACKATHON_STORY.md)**
 
@@ -144,7 +153,7 @@ about its geometry, stability or materials has been validated against a real wal
 <sub><b>The first-place result announced at the Oxford Venture 2026 Hackathon.</b></sub>
 </div>
 
-Photograph provenance, including two privacy redactions, is documented in
+The original photo sources and the two privacy redactions are listed in
 [assets/README.md](assets/README.md).
 
 ---
@@ -163,8 +172,9 @@ of people around us made a real difference to what we could build.
 
 After testing near Saïd Business School, pitching and winning, we celebrated at a **Keble
 College ball** and then spent time at the college bar. I loved discovering Oxford's college
-culture and making friends throughout the visit. The award was a wonderful result; the
-teamwork and friendships were just as memorable.
+culture and making friends throughout the visit. Winning was exciting, and I was really
+happy to share that with the team. I also came away with great friends and a lot of
+memories from the time we spent working and celebrating together.
 
 <table>
 <tr>
@@ -177,8 +187,8 @@ teamwork and friendships were just as memorable.
 </tr>
 </table>
 
-*These photographs show the wider Oxford visit; their captions do not assign an exact event
-or date. The overnight times above are approximate recollections.*
+*These are photos from my wider stay in Oxford, rather than a record of that exact night.
+The 2 a.m. and 3 a.m. times are approximate; that is how I remember the overnight build.*
 
 **[The complete build story and photo essay](docs/HACKATHON_STORY.md)**
 
@@ -186,13 +196,15 @@ or date. The overnight times above are approximate recollections.*
 
 ## The original live demonstration
 
-In the final presentation, the team triggered a simulated fall by **tipping the prototype
-over in front of the judges**. The demonstration included an escalation
-workflow and **a real phone call to the team's phone, live in the room.**
+During our final presentation, we simulated a fall by **tipping the prototype over in
+front of the judges**. We showed the escalation workflow, including **a real phone call
+to our team’s phone, live in the room.** It was the demonstration we had spent the night
+preparing and testing together.
 
-The presentation demonstrated the intended detection-to-contact experience. The surviving
-record does not establish whether every contact step was automated. It remained a hackathon
-prototype rather than a clinically validated safety system.
+That showed what we wanted the detection-to-contact experience to feel like. The records
+we still have do not confirm whether every contact step was automated. It was a hackathon
+prototype, and the demonstration did not establish that it was a clinically validated
+safety system.
 
 > [!IMPORTANT]
 > That call happened during the **original hackathon demo**, on the team's own phone and
@@ -201,20 +213,21 @@ prototype rather than a clinically validated safety system.
 > appears anywhere in this repository.
 
 <details>
-<summary><b>Why it won</b></summary>
+<summary><b>What we brought to the final pitch</b></summary>
 
 <br>
 
-Four things the judges could check on the day, all of which are documented here:
+There were four parts of the project we could show the judges on the day. They are all
+documented here, so you can see what we had built and what informed our decisions:
 
-- **A real end-to-end loop, not a slideshow.** The fall was simulated physically and the
+- **The simulated fall and the phone call.** The fall was simulated physically and the
   escalation ended in a phone call ringing in the room.
-- **Field evidence behind the product decisions.** 32 interviews around Oxford, and a
+- **What we heard from people in Oxford.** 32 interviews around Oxford, and a
   specific finding — walker users are mostly indoors — that visibly changed what was built.
-- **A cost argument that was hard to argue with.** A free frame plus a phone that already
+- **Our cost comparison.** A free frame plus a phone that already
   exists, against a $2,499 competitor that had not shipped in six years.
-- **Hardware that existed.** Improvised from lacrosse sticks and a borrowed 3D printer, but
-  physically present, mounted and demonstrable rather than described.
+- **The physical prototype.** Improvised from lacrosse sticks and a borrowed 3D printer, but
+  assembled with the phone mounted so we could demonstrate the setup in the room.
 
 </details>
 
@@ -226,7 +239,7 @@ These recordings were captured during the original Oxford Venture 2026 Hackathon
 show the surviving computer-vision detector, the iPhone interface, floor-hazard filtering and
 the incident log that existed before the reconstructed browser demo in this repository.
 
-**The original iOS source did not survive the hackathon, but video evidence of it did.**
+**We no longer have the original iOS source, but we still have these recordings of the app.**
 
 > [!NOTE]
 > Everything in this section is **original hackathon footage**, not a recording of the
@@ -278,7 +291,8 @@ per-clip provenance in <a href="assets/README.md">assets/README.md</a>.</sub>
 </a>
 
 **Still from the original first-place final pitch** — *presented at the Oxford Venture 2026
-Hackathon.* The complete pitch delivered to the judges, including the live demonstration.
+Hackathon.* We delivered the full pitch to the judges and finished with the live
+demonstration described above. The image links to the still, not the full recording.
 
 <!--
   PITCH VIDEO LINK — intentionally not published yet.
@@ -301,8 +315,9 @@ Hackathon.* The complete pitch delivered to the judges, including the live demon
 
 ## Oxford field validation
 
-Within the same 36 hours, the team did not rely on online research alone. They left the venue
-and interviewed members of the public on the streets of Oxford.
+During those same 36 hours, we left the venue and spoke to members of the public on the
+streets of Oxford. We wanted to understand their experiences before deciding which
+features to prioritise. These are the figures we reported in our pitch:
 
 | | |
 |---|---|
@@ -311,8 +326,9 @@ and interviewed members of the public on the streets of Oxford.
 | **4** | care homes contacted; **2** expressed interest in a follow-up test or a scheduled demonstration |
 | **2** | elderly-care experts expressed interest |
 
-Neither care home became a formal partner and no trial was agreed. The figures are reported
-as the team presented them and are not independently verified in this repository.
+We were pleased that people were interested, but neither care home became a formal
+partner and no trial was agreed. These are the figures we presented as a team at the
+event; this repository does not independently verify the interview results.
 
 Three findings changed the build:
 
@@ -337,9 +353,10 @@ manufactured to replace it. A **retired smartphone** already contains a camera, 
 accelerometer, a gyroscope, connectivity and compute, which makes it a practical platform for
 a low-cost assistive retrofit rather than a device to be built from scratch.
 
-Two consequences follow. It could reduce the need to manufacture an entirely new smart
-mobility device for each user, and it creates a use for phones that would otherwise sit
-unused in a drawer or become electronic waste.
+This is part of what appealed to us about the idea. Reusing that equipment could reduce
+the need to manufacture a new smart mobility device for each user. It could also give
+phones another use when they would otherwise sit unused in a drawer or become electronic
+waste. Those are possibilities we wanted to explore through the project.
 
 The pitch deck cites that 40.4% of people replace their phone every two to three years and
 that over five billion phones are discarded worldwide each year. **No environmental impact
@@ -463,11 +480,12 @@ architecture slide from the deck.
 
 ### Two decisions worth reading about
 
-**The hazard filter is a verbatim port, not an improvement.** `classifyDetection()`
+**The rebuilt hazard filter keeps the original rule.** `classifyDetection()`
 reproduces the original Python rule exactly — the same 0.65 and 0.15 frame thresholds, the
-same `{person, bed, suitcase, couch}` ignore list, the same 0.5 confidence gate. Writing a
-cleaner metric-space rule would have been easy and would have quietly cut the reconstruction
-loose from the code that actually ran.
+same `{person, bed, suitcase, couch}` ignore list, the same 0.5 confidence gate. Keeping
+those checks makes it possible to compare the JavaScript behaviour directly with the
+Python code from the event. A different metric-space rule might be useful in future, but
+it would no longer reproduce the original detector’s decisions.
 
 **Sample scenes are authored in metres, not pixels.** The hazard rule is about frame
 position, so hand-placed boxes would make the demo circular — objects would be hazards
@@ -506,7 +524,8 @@ They assert the claims the demo makes, through the same `runPathway()` entry poi
 
 One of these caught a real bug during the rebuild: the deck describes the detector as
 "angular acceleration driven", but impact initially carried the larger weight. The model
-was corrected, not the test.
+was corrected so angular acceleration carried the larger weight, while the test kept
+checking the behaviour described in the deck.
 
 ---
 
@@ -520,9 +539,10 @@ This repository is rebuilt from the pitch deck and the surviving code. The split
 | 🔧 **Rebuilt** | The browser interface, the JavaScript scoring engine, the camera projection model, the synthetic motion scenarios, the triage model, the mock caregiver dashboard, the automated tests, and these docs. |
 | ❌ **Still missing** | The iOS app **source** (SwiftUI + RoomPlan + CoreMotion), the original sensor recordings, the real production SMS/voice integration, the Core ML deployment code, and clinically validated fall thresholds. Every motion value in `data/sampleEvents.js` is synthesised because none survived. |
 
-The videos are **evidence that the original implementation ran** — they are not a recovery of
-it. The iOS source is still gone, and nothing in `assets/videos/` can be compiled, tested or
-extended.
+The videos let you **see the original implementation running**. They are useful for
+understanding the interface and the demonstration, but they do not contain the iOS
+source. Nothing in `assets/videos/` can be compiled, tested or extended as app code;
+that is why the new iPhone implementation is separate work.
 
 Every weight and threshold in the engine is an engineering judgement call, not a
 measurement. Nothing here has been validated against a real fall.
@@ -540,8 +560,9 @@ is not clinically validated.**
 
 ## Roadmap
 
-The first milestone is not a feature — it is **recording real sensor traces**, so the fall
-thresholds can be fitted instead of asserted. After that: a detector trained on floor
+The first thing to tackle is **recording real sensor traces**. That would let us fit the
+fall thresholds to recorded data and assess them, rather than continuing to choose them
+by engineering judgement. After that: a detector trained on floor
 hazards COCO does not cover, temporal tracking, Core ML conversion, and rebuilding the iOS
 app. Full plan, including the open questions that could invalidate the approach, in
 [docs/ROADMAP.md](docs/ROADMAP.md).
@@ -578,8 +599,9 @@ All paths are relative, so it works from a subdirectory. Any static host does th
 
 ## Accessibility
 
-Every score is stated three ways — bar, number and sentence — because the users this exists
-for are exactly the ones failed by information encoded in colour alone. The fall-risk bar
+Every score is shown three ways: a bar, a number and a sentence. That lets someone read
+the result without having to distinguish colours, which matters for the people we hope
+could use an interface like this. The fall-risk bar
 takes its colour from the detector stage rather than its value, so a 92% score never renders
 green. Motion respects `prefers-reduced-motion`, focus is always visible, and the triage
 message is an ARIA live region. Details and the known gaps in
@@ -587,8 +609,9 @@ message is an ARIA live region. Details and the known gaps in
 
 ## Team
 
-The four team members met for the first time at the Oxford Venture 2026 Hackathon, formed the
-team on site, and built Pathway together over the following 36 hours.
+The four of us met for the first time at the Oxford Venture 2026 Hackathon. We formed
+the team on site and built Pathway together over the following 36 hours, with each of
+us bringing different experience to the work.
 
 | | |
 |---|---|
@@ -597,11 +620,12 @@ team on site, and built Pathway together over the following 36 hours.
 | **Antony He** | CAD & market research |
 | **Aiyush Gupta** | Product & strategy |
 
-**Jake's contribution:** concept development, user research, and hands-on prototype engineering. I helped integrate the smartphone with the physical walker prototype, test the hazard-detection and fall-alert workflow, and troubleshoot issues ahead of the live demonstration. I also led customer discovery and contributed to the final pitch.
+**My contribution:** concept development, user research, and hands-on prototype engineering. I helped integrate the smartphone with the physical walker prototype, test the hazard-detection and fall-alert workflow, and troubleshoot issues ahead of the live demonstration. I also led customer discovery and contributed to the final pitch.
 
 The work spanned user research and street interviews, software architecture, computer
 vision, CAD and 3D printing, physical prototyping, market validation, and the final
-presentation. No one part of it belongs to one person.
+presentation. These roles describe our main contributions, but we helped each other
+throughout the build. I want the project to reflect the work we did together as a team.
 
 ## Safety and clinical disclaimer
 
