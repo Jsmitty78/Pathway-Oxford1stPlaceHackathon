@@ -222,7 +222,7 @@ I made so many great Oxford friends during J-StarX, and I really enjoyed getting
 
 <table>
 <tr>
-<td width="50%"><img src="../assets/hackathon/oxford-college-friends.jpg" alt="A photograph with friends in formal dress during the Oxford visit"></td>
+<td width="50%"><img src="https://raw.githubusercontent.com/Jsmitty78/Pathway-Oxford1stPlaceHackathon/1c59fad8ff585d24ed01839bd61e7b358f0d9725/assets/hackathon/oxford-college-friends.jpg" alt="A photograph with friends in formal dress during the Oxford visit"></td>
 <td width="50%"><img src="../assets/hackathon/oxford-college-dinner.jpg" alt="A shared dinner during the Oxford visit"></td>
 </tr>
 <tr>

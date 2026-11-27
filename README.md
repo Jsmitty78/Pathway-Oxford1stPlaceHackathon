@@ -178,7 +178,7 @@ memories from the time we spent working and celebrating together.
 
 <table>
 <tr>
-<td width="50%"><img src="assets/hackathon/oxford-college-friends.jpg" alt="Friends in formal dress during the Oxford visit"></td>
+<td width="50%"><img src="https://raw.githubusercontent.com/Jsmitty78/Pathway-Oxford1stPlaceHackathon/1c59fad8ff585d24ed01839bd61e7b358f0d9725/assets/hackathon/oxford-college-friends.jpg" alt="Friends in formal dress during the Oxford visit"></td>
 <td width="50%"><img src="assets/hackathon/oxford-college-dinner.jpg" alt="A shared college dinner during the Oxford visit"></td>
 </tr>
 <tr>
