@@ -1,3 +1,5 @@
+<p align="right"><strong>English</strong> | <a href="HACKATHON_STORY.ja.md">日本語</a></p>
+
 # The 36-hour build: Pathway in Oxford
 
 We met at the Oxford Venture 2026 Hackathon, built Pathway together in 36 hours, and won
