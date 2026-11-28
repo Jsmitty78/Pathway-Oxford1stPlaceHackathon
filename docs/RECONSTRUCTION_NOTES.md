@@ -82,6 +82,10 @@ classes. In the reconstruction it is modelled as a fixed hazard from the LiDAR r
 which is consistent with the architecture slide. Whether the original build actually did
 that, or whether the rug simply was not detected, is unknown.
 
+## New iOS implementation (November 2026)
+
+The [ios/](../ios/README.md) directory now contains a new SwiftUI implementation of camera input, optional Core ML detection, motion sampling, a HELP flow, incident storage and separate RoomPlan scanning. It does not recover the original source or establish equivalence with the original system. See its verification record for tested scope and pending device checks.
+
 ## What is still missing
 
 Nothing in this repository can substitute for these:
